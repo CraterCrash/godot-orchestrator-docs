@@ -1,0 +1,11 @@
+.figure figure {
+    border: 1px solid transparent;
+}
+
+.figure:hover figure {
+    border: 1px solid gold !important;
+}
+
+.figure a {
+    text-decoration: none !important;
+}

@@ -1,0 +1,28 @@
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    padding: 3px 0;
+    border-radius: 6px;
+    left: 18px;
+    top: -9px;
+    text-align: center;
+    z-index: 1;
+}
+
+.dot:hover .tooltip {
+    visibility: visible;
+}

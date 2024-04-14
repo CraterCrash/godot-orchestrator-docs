@@ -1,0 +1,206 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-color-primary: #4396dc !important;
+  --ifm-h4-font-size: 1.25rem;
+}
+
+h2, h3 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #4396dc;
+}
+
+h4 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid grey;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* custom */
+  --ifm-background-color: #202326 !important; /*#2e3236 !important;*/ /*#141218 !important;*/
+  --ifm-color-primary: #4396dc !important;
+  --ifm-navbar-background-color: #404040 !important; /*#141220 !important;*/
+}
+
+[data-theme='dark'] .navbar .navbar__logo {
+  content: url(https://cdn.vahera.cloud/utG8NiO3oN8sfXvI2ZZ0zg/30dd22ef-b3bf-4fa3-70a9-af8c8cf45b00/public);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: #25282b /*343131*/ !important;
+}
+
+[data-theme='dark'] div.container {
+  background-color: #2e3236 !important;
+}
+
+[data-theme='dark'] h3 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #4396dc;
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.25rem !important;
+}
+
+.navbar__inner {
+  width: 1550px;
+  margin: auto;
+}
+
+#__docusaurus_skipToContent_fallback > div > div {
+  width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/** START FOOTER **/
+
+.footer {
+  padding: 0px !important;
+}
+
+.vs-footer {
+  font-family: "Figtree", sans-serif;
+  padding-top: 3em;
+  padding-bottom: 2em;
+  background-color: #020426; /*#111a29;*/
+  border-top: 6px solid #4396dc;
+
+  /* this is the default html font size on support.vahera.com */
+  font-size: 16px;
+}
+
+.vs-footer .vs-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.vs-footer .vs-logo .vs-logo-image {
+  display: block;
+  width: 150px !important;
+  /*height: 100px;*/
+  margin: 0 auto;
+}
+
+.vs-footer .footer-links,
+.vs-footer .footer-sublinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.vs-footer .footer-sublinks {
+  margin-top: 1em;
+}
+
+.vs-footer .footer-links a,
+.vs-footer .footer-links a:visited,
+.vs-footer .footer-sublinks a,
+.vs-footer .footer-sublinks a:visited {
+  text-transform: uppercase;
+  color: #4396DC;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.vs-footer .footer-links a:hover,
+.vs-footer .footer-sublinks a:hover {
+  color: #86848b;
+}
+
+.vs-footer .footer-links a:not(:last-child)::after,
+.vs-footer .footer-sublinks a:not(:last-child)::after {
+  content: "|";
+  margin-left: .75em;
+  margin-right: .75em;
+  color: rgba(127, 127, 127, 0.8);
+}
+
+.vs-footer .footer-sublinks {
+  font-size: var(--font-down-1);
+}
+
+.vs-footer .footer-terms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.75em;
+}
+
+.vs-footer .footer-terms.terms-copyright {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 255);
+  text-align: center;
+}
+
+.vs-footer .footer-terms.terms-trademark {
+  font-size: var(--font-down-1);
+  color: rgba(127, 127, 127, 1);
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/** END FOOTER **/
+
+figure > figcaption {
+  text-align: center;
+  color: #abacaf;
+  font-style: italic;
+}
+
+figure {
+  background-color: #dddddd0d;
+  border: 2px solid #2a323f;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+a.external-link {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEyIiB3aWR0aD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGNmIj48cGF0aCBkPSJNNy41IDcuMXYzLjRoLTZ2LTZoMy40Ii8+PHBhdGggZD0iTTUuNzY1IDFIMTF2NS4zOUw5LjQyNyA3LjkzN2wtMS4zMS0xLjMxTDUuMzkzIDkuMzVsLTIuNjktMi42ODggMi44MS0yLjgwOEw0LjIgMi41NDR6Ii8+PC9nPjwvc3ZnPg==);
+  background-position: 100%;
+  background-repeat: no-repeat;
+  padding-right: 13px;
+}
+
+code {
+  background: rgba(177, 209, 241, 0.15);
+  border-radius: 4px;
+  color: #d68f8f;
+  font-size: .95em;
+  padding: 3px 5px;
+}
+
+figure > img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
