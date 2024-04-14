@@ -2,6 +2,7 @@ name: Build documentation
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -10,5 +11,26 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
+
       - name: Build
-        run: npm run build
+        run: |
+          npm install
+          npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./build
+          retention-days: 5
+
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: ./pr-id.txt
