@@ -1,0 +1,14 @@
+name: Build documentation
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build documentation
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Build
+        run: npm run build
