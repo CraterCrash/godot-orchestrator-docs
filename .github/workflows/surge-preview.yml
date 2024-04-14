@@ -2,7 +2,7 @@ name: Surge.sh Preview
 
 on:
   workflow_run:
-    workflows: ["Receive PR"]
+    workflows: ["Build documentation"]
     types:
       - completed
 
