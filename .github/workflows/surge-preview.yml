@@ -35,7 +35,7 @@ jobs:
       - name: Upload surge service
         id: deploy
         run: |
-          export DEPLOY_DOMAIN=https://godot-orchestrator-github-io-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
+          export DEPLOY_DOMAIN=https://vahera-godot-orchestrator-docs-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Update status comment
