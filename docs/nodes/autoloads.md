@@ -43,11 +43,21 @@ The **Get Autoload** node returns a reference to the specific Autoload as its *o
 
 In the above example, the **Autoload Node** returns a reference to the **GameData** autoload.
 
-To add an **Autoload** node:
+There are two ways to add an **Autoload** node:
+
+1. Selecting the registered autoload from the `Project > Autoloads` **All Actions** category list.
+   <Figure image="/img/nodes/autoloads/autoload-project-autoloads.png" caption="Selecting an autoload directly from the action list"></Figure>
+   :::note
+   This choice is only permitted when right-clicking the graph; it will not be shown when dragging from an input/output pin.
+   :::
+
+2. Adding a generic **Get Autoload** node to the graph.
+
+To add a generic **Autoload** node:
 
 1. Right-click the graph to open the **All Actions** dialog.
 2. Search for `autoload`.
-3. Select the **Get Autoload** choice and press the **Add* button or simply press **Enter**.
+3. Select the **Get Autoload** choice and press the **Add** button or simply press **Enter**.
 
 ## Changing the autoload reference
 
@@ -63,3 +73,7 @@ To change the autoload reference:
 
 An orchestration can also be used as an *Autoload*, just like `.gd` and `.cs` scripts.
 To use an `Orchestration` as an **Autoload**, follow the [Registering autoloads](#registering-autoloads) procedure, and select the `Orchestration` rather than a GDScript (`.gd`) or C# (`.cs`) script files.
+
+:::tip
+When adding or removing an autoload from `Project > Project Settings` autoload tab, the **All Actions** choices will automatically update to reflect the changes.
+:::
