@@ -139,3 +139,29 @@ If you decide at a later time that you want to remove a variable argument from t
 :::info
 Only user added dynamic pins can be removed.
 :::
+
+## Method chaining
+
+In text-based programming languages, method chaining is a technique to simplify code by calling multiple methods on the same object in a single line.
+In visual scripting tools, method chaining is not as common, but Orchestrator supports method chaining by allowing you to connect the output of one function to the input of another.
+
+For example, in the following graph, we are applying a position and rotation to the camera.
+You will notice that we have to not only call **Set Position** and **Set Rotation**, but we have to link the Camera node to each function call.
+If you were to add additional steps that you needed to perform on the Camera, you would begin to have a spaghetti of connections.
+
+<Figure image="/img/nodes/functions/no-method-chaining.png" caption="No method chaining"></Figure>
+
+Now, thanks to method chaining, you can connect the target output to the input of the next function call.
+
+<Figure image="/img/nodes/functions/method-chaining.png" caption="Method chaining in Orchestrator"></Figure>
+
+This makes the graph easier to read and understand, as well as easier to maintain.
+
+To enable method chaining:
+
+1. Click the **Call Function** node.
+2. Open the **Inspector** view.
+3. Check the `Chain` option.
+   <Figure image="/img/nodes/functions/method-chaining-inspector.png" caption="Enable chaining"></Figure>
+
+Once enabled, a new output pin labeled `Target` will appear, allowing you to chain the functions together.
