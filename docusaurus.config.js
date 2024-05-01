@@ -53,7 +53,7 @@ const config = {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Vahera/godot-orchestrator-docs/edit/main/',
         },
         blog: false,
         theme: {
