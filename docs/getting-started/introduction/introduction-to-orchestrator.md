@@ -12,7 +12,7 @@ We will introduce many more features in this getting started series.
 
 ## What is Orchestrator?
 
-Orchestrator a Godot plug-in designed to provide visual-scripting capabilities to any Godot game project.
+Orchestrator is a Godot plug-in designed to provide visual-scripting capabilities to any Godot game project.
 It can be used to create games or applications that are released on a myriad of platforms, including desktop, mobile, or the web.
 
 You can also create console games using Orchestrator, although you either need strong programming skills or a developer to port the game for you.
