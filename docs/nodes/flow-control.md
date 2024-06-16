@@ -152,6 +152,7 @@ In a future Orchestrator update, wires will be controlled by user-driven **Knots
 | Loop Body   | This outputs an execution pulse on each iteration of the loop as it moves between the two indices. |
 | Index       | This outputs the current index in the loop.                                                        |
 | Completed   | This outputs an execution pulse when the loop has reached the for loop has completed.              |
+| Aborted     | This outputs whether the loop broke early due to the **Break** input pin.                          |
 
 ### For each loop
 
@@ -198,6 +199,7 @@ In a future Orchestrator update, wires will be controlled by user-driven **Knots
 | Element   | This outputs the current array element.                                                            |
 | Index     | This outputs the current index in the loop.                                                        |
 | Completed | This outputs an execution pulse when the loop has reached the for loop has completed.              |
+| Aborted   | This outputs whether the loop broke early due to the **Break** input pin.                          |
 
 ### Random
 
@@ -222,15 +224,15 @@ If the condition is `false`, the **Select** node allows the value of `B` to be s
 
 :::info
 By default, the **Select** node uses the Godot **Any** type to allow any value to be attached to its input pins.
-To restrict the **Select** node to a specific Godot type, right-click on the `A`, `B`, or `Return Value` pins and pick a type from the `Change Type` context-menu.
+To restrict the **Select** node to a specific Godot type, right-click on the `A`, `B`, or `Result` pins and pick a type from the `Change Type` context-menu.
 :::
 
-| Pin          | Description                                                                 |
-|:-------------|:----------------------------------------------------------------------------|
-| A            | One of two values that will be output if the `Pick A` condition is `true`.  |
-| B            | One of two values that will be output if the `Pick A` condition is `false`. |
-| Pick A       | Controls whether the value of `A` or `B` is emitted as the `Return Value`   |
-| Return Value | The output value of the gate, depends on what the `Pick A` condition is.    |
+| Pin    | Description                                                                 |
+|:-------|:----------------------------------------------------------------------------|
+| A      | One of two values that will be output if the `Pick A` condition is `true`.  |
+| B      | One of two values that will be output if the `Pick A` condition is `false`. |
+| Pick A | Controls whether the value of `A` or `B` is emitted as the `Return Value`   |
+| Result | The output value of the gate, depends on what the `Pick A` condition is.    |
 
 ### Sequence
 
