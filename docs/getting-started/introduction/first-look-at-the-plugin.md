@@ -39,10 +39,12 @@ User-defined functions are a great way to not only expose functionality to the o
 
 * The **Macros** section is currently unimplemented, and will be enabled in a future patch.
 
-* The **Variables** section allows for creating unique named objects for storing values.
-Variables are associated with a specific Godot type can can either be publicly accessible or scoped to the script.
+* The **Variables** section allows creating unique named objects for storing values.
+Variables are associated with a specific Godot type and can be publicly accessible or scoped to the script.
 A variable will be publicly accessible if it has the <EditorIcon name="GuiVisibilityVisible" /> icon.
-The variable is not publicly accessible if it has the <EditorIcon name="GuiVisibilityHidden" /> icon.
+This means that the variable is exported, in Godot terms.
+The variable is not publicly accessible when using the <EditorIcon name="GuiVisibilityHidden" /> icon.
+This means that the variable is not exported, in Godot terms.
 
 * The **Signals** section is for user-defined signals, allowing outside observers to connect and be notified when you emit a signal.
 
