@@ -48,7 +48,7 @@ h4 {
 }
 
 [data-theme='dark'] .navbar .navbar__logo {
-  content: url(https://cdn.vahera.cloud/utG8NiO3oN8sfXvI2ZZ0zg/30dd22ef-b3bf-4fa3-70a9-af8c8cf45b00/public);
+  content: url(https://cdn.cratercrash.space/utG8NiO3oN8sfXvI2ZZ0zg/92aa5265-59df-489c-daf0-4fab40a2d300/public);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
@@ -83,7 +83,127 @@ h4 {
 
 .footer {
   padding: 0px !important;
+  background-color: #000;
 }
+
+/** START CCS FOOTER **/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.footer-separator {
+  text-align: center;
+  border-top-style: solid;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+  border-color: #f50162;
+  border-top-width: 3px;
+  border-bottom-width: 0px;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  min-height: inherit;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.footer .footer-links {
+  display: flex;
+  column-gap: 15px;
+  font-family: 'Poppins';
+  color: #e6c643;
+  font-size: 13px;
+  align-self: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 3px;
+}
+
+.footer .footer-links > a {
+  font-family: 'Poppins';
+  color: #e6c643;
+  text-decoration: none;
+}
+
+.footer .copyright {
+  font-family: 'Space Mono';
+  color: #e6c643;
+  font-size: 13px;
+  align-self: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.65);
+  font-weight: 700;
+}
+
+.footer .copyright .symbol {
+  font-family: 'Poppins';
+}
+
+.footer .trademark {
+  font-family: 'Poppins';
+  color: #cccccc;
+  font-size: 12px;
+  align-self: center;
+  background-color: rgba(0, 0, 0, .65);
+  font-weight: 400;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.footer .affiliation {
+  font-family: 'Poppins';
+  color: #cccccc;
+  font-size: 12px;
+  align-self: center;
+  background-color: rgba(0, 0, 0, .65);
+  font-weight: 400;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.footer .socials {
+  display: flex;
+  column-gap: 25px;
+  padding-bottom: 25px;
+  align-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  align-self: center;
+  flex-direction: row;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.footer .socials > a {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .socials > a > img {
+  width: 25px;
+  border-style: none;
+  max-width: 100%;
+}
+
+/** END CCS FOOTER **/
 
 .vs-footer {
   font-family: "Figtree", sans-serif;

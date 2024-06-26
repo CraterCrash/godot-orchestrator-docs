@@ -1,7 +1,7 @@
 
 # Tutorials and resources
 
-This page maintains a list of various tutorials and resources created by Vahera Studios and community contributors.
+This page maintains a list of various tutorials and resources created by Crater Crash Studios and community contributors.
 
 If you believe something is missing here, submit a <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">Pull Request</ExternalLink>.
 

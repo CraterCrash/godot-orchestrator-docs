@@ -26,7 +26,7 @@ For derived works that include Orchestrator, but do not modify or change its sou
 ```text
   This game uses Orchestrator, which is available under the following license:
 
-  Copyright (c) 2023-present Vahera Studios, LLC and it's contributors.
+  Copyright (c) 2023-present Crater Crash Studios, LLC and it's contributors.
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.

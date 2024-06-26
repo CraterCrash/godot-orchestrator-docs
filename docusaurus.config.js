@@ -15,14 +15,14 @@ const config = {
   favicon: 'img/favicon.png',
 
   // Set the production url of your site here
-  url: 'https://docs.vahera.com/',
+  url: 'https://docs.cratercrash.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: baseUrl,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Vahera Studios',
+  organizationName: 'Crater Crash Studios',
   projectName: 'godot-orchestrator',
 
   onBrokenLinks: 'throw',
@@ -83,9 +83,8 @@ const config = {
         title: 'Orchestrator Documentation',
         hideOnScroll: false,
         logo: {
-          alt: 'Vahera Studios',
-          src: 'https://cdn.vahera.cloud/utG8NiO3oN8sfXvI2ZZ0zg/6fc6e456-e4f1-4ac0-8d57-fda126760f00/public',
-          // src: 'https://cdn.vahera.cloud/utG8NiO3oN8sfXvI2ZZ0zg/30dd22ef-b3bf-4fa3-70a9-af8c8cf45b00/public',
+          alt: 'Crater Crash Studios',
+          src: 'https://cdn.cratercrash.space/utG8NiO3oN8sfXvI2ZZ0zg/92aa5265-59df-489c-daf0-4fab40a2d300/public',
         },
         items: [
           {
@@ -111,7 +110,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} Vahera Studios, LLC.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Crater Crash Studios, LLC.`,
       },
       prism: {
         theme: prismThemes.github,

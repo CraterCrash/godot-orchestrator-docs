@@ -25,7 +25,7 @@ You can read more in the <ExternalLink href="https://docs.godotengine.org/en/sta
 
 ## What can the plug-in do?
 
-The idea of Orchestrator as a visual-scripting tool began as an in-house experiment for several unpublished games at Vahera Studios.
+The idea of Orchestrator as a visual-scripting tool began as an in-house experiment for several unpublished games at Crater Crash Studios.
 The team soon began to see the benefit of open sourcing the project for other Godot developers, especially after the Godot engine officially discontinued its own visual scripting support at the end of Godot 3.
 
 The plug-in is designed to fully integrate with the Godot engine, allowing developers to visually design game logic, code, behaviors, state machines, RPG-based conversations, and more using visual nodes and a graph canvas instead of text-based editors used for Godot's built-in script languages: `C#` and `GDScript`.

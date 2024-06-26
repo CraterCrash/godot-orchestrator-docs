@@ -14,12 +14,12 @@ The documentation is based on the Docusaurus classic theme with a number of cust
 
 All contributors are welcome to help on the Orchestrator documentation.
 
-To get started, read the [Contributing section](https://docs.vahera.com/orchestrator/contributing/ways-to-contribute) of the online documentation.
+To get started, read the [Contributing section](https://docs.cratercrash.com/orchestrator/contributing/ways-to-contribute) of the online documentation.
 There you will find all the information needed to add, improve, and update this documentation.
 
 ## 📝 License
 
-All the contents of this repository is licensed under the Creative Commons Attribution 3.0 Unported license ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)) and is to be attributed to "Vahera Studios, LLC, and its contributors".
+All the contents of this repository is licensed under the Creative Commons Attribution 3.0 Unported license ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)) and is to be attributed to "Crater Crash Studios, LLC, and its contributors".
 See the [LICENSE](/LICENSE) for more details.
 
 ## 👏 Contributors

@@ -10,7 +10,7 @@ sidebar_position: 4
 Orchestrator is licensed under the <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink>.
 
 * **What license is Orchestrator logo and marketing images under?**<br/>
-The Orchestrator logo and marketing images, including this website, are Copyright © 2023 Vahera Studios. All Rights Reserved.
+The Orchestrator logo and marketing images, including this website, are Copyright © 2023 Crater Crash Studios. All Rights Reserved.
 
 * **Do you offer support for this plugin?**<br/>
 Yes, we are committed to providing support for our plugin, simply leave your questions on our discord.
@@ -22,7 +22,7 @@ You can find the source code on our <ExternalLink href="https://github.com/Vaher
 Feel free to leave it in our discord in the `#suggestions` channel, or our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub repository</ExternalLink>.
 
 * **Are you affiliated with Godot or the Godot Engine?**<br/>
-  No, Vahera Studios is not affiliated with Godot or the Godot Engine.
+  No, Crater Crash Studios is not affiliated with Godot or the Godot Engine.
 
 * **Does Orchestrator support Godot 4.2 and above?**<br/>
   Yes, Orchestrator supports Godot 4.2 and above. It does not work with any version of Godot prior to 4.2.

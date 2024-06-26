@@ -11,14 +11,14 @@ Orchestrator's documentation is available in various languages and versions.
 Expand the language or version selector in the top navigation panel to see the possible values.
 :::
 
-Welcome to the official documentation of <ExternalLink href="https://orchestrator.vahera.com">Orchestrator</ExternalLink>, the ultimate Visual Scripting solution specific designed for Godot platform.
+Welcome to the official documentation of <ExternalLink href="https://cratercrash.com/orchestrator">Orchestrator</ExternalLink>, the ultimate Visual Scripting solution specific designed for Godot platform.
 If you are new to this documentation, we recommend that you read the [introduction page](./introduction.md) to get an overview of what this documentation has to offer.
 
 The table of contents in the sidebar should let you easily access the documentation for your topic of interest.
 
 ## Get involved
 
-Orchestrator is an open source project developed by Vahera Studios, LLC in collaboration with a community of volunteers.
+Orchestrator is an open source project developed by Crater Crash Studios, LLC in collaboration with a community of volunteers.
 The documentation team can always use feedback and help to improve tutorials, class reference guides, and more.
 If you don't understand something, or cannot find what you are looking for in the docs, help us make the documentation better by letting us know!
 

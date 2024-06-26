@@ -15,7 +15,7 @@ The [Tutorials and resources](../community/tutorials-and-resources) page has a l
 If you prefer video to text, consider checking them out.
 Otherwise, [Getting Started](../getting-started/introduction) is a great starting point.
 
-In case you have trouble with one of the tutorials or your project, you can always find help through the Vahera Studios Discord community, our Forums, or the Godot Discord.
+In case you have trouble with one of the tutorials or your project, you can always find help through the Crater Crash Studios Discord community, our Forums, or the Godot Discord.
 
 ## About Orchestrator
 
@@ -59,7 +59,7 @@ We are always looking for more help.
 You can also contribute by opening GitHub issues or translating the documentation into your own language.
 If you are interested in helping, see [Ways to contribute](../contributing/ways-to-contribute) and [Writing documentation](../contributing/writing-documentation), or get in touch with the team on <ExternalLink href="https://discord.gg/J3UWtzWSkT">Discord</ExternalLink>.
 
-All documentation content is licensed under the permissive Creative Commons Attribution 3.0 (<ExternalLink href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</ExternalLink>) license, with attribution to *"Vahera Studios, LLC and the community"* unless otherwise noted.
+All documentation content is licensed under the permissive Creative Commons Attribution 3.0 (<ExternalLink href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</ExternalLink>) license, with attribution to *"Crater Crash Studios, LLC and the community"* unless otherwise noted.
 
 ***Have fun reading and making games with Orchestrator!***
 

@@ -27,7 +27,7 @@ The following sections will cover some of these direct ways to contribute.
 - **Donate**.<br/>
 Orchestrator is a plug-in that is defined completely free of charge, and in the spare time of willing contributors.
 Donations help cover certain operating costs for hosting our websites, content, and more.
-If you want to donate to the project, check <ExternalLink href="https://orchestrator.vahera.com">our website</ExternalLink> for details.
+If you want to donate to the project, check <ExternalLink href="https://cratercrash.com/orchestrator">our website</ExternalLink> for details.
 
 ## Contributing code
 

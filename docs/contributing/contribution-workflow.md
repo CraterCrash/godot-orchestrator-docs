@@ -57,7 +57,7 @@ git remote add upstream https://github.com/Vahera/godot-orchestrator.git
 git fetch upstream
 ```
 
-The above creates a reference named `upstream` to the original `godot-orchestrator` repository maintained by Vahera.
+The above creates a reference named `upstream` to the original `godot-orchestrator` repository maintained by Crater Crash Studios.
 This reference will be helpful because you want to keep your local repository up-to-date with new commits added to the original repository.
 You will also have another reference to `origin`, which points to your _fork_ repository on GitHub.
 
