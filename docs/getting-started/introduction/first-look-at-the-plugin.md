@@ -185,6 +185,51 @@ At this time, Orchestrator does not officially support Undo/Redo operations in t
 This feature is currently under development and is planned for a future release.
 :::
 
+## File formats
+
+Orchestrator supports two file formats:
+
+* `.torch`, which is text-based
+* `.os` which is binary-based.
+
+The text-based format was introduced with Orchestrator 2.1, and will be the default moving forward.
+This format is more human-readable and is easier to work with version control systems, as text-based files allow for significantly easier diffing between changes.
+The binary-based format was originally introduced with Orchestrator 2.0, and is planned to be deprecated in a future release.
+
+### Converting between formats
+
+In order to convert from one format to another, simply follow these steps:
+
+1. Open the desired orchestration.
+This can be performed by double-clicking the file in the **Filesystem Dock** by using the Orchestrator plug-in's **File** menu by selecting **Open Orchestration**.
+2. Click on the **File** menu and select **Save As**.
+3. In the **Save As** dialog, provide a new file name with the desired format extension (`.os` or `.torch`).
+
+:::warning
+When converting an Orchestration between formats, the scenes that import and use the Orchestrations are not automatically updated.
+You will need to open each scene that uses the Orchestration and re-attach the new Orchestration file that uses the new format you selected.
+:::
+
+:::tip
+If you want to change the default format used by the plug-in, this can be done in the `Project > Project Settings` dialog.
+Simply open the dialog and navigate to the `Orchestrator > Settings` section where you will find the `Storage Type` configuration option.
+Here you can select between either **Text** or **Binary**, which controls the default format used when creating new Orchestrations.
+:::
+
+### Exporting games
+
+In a Godot project, not every resource is exported in the same format that it's saved with in the project workspace.
+This is because often times resources are saved using human-readable formats in the project workspace, but are converted to a binary format when the game is exported for performance reasons.
+Several built-in Godot resources are converted to binary when exporting games, such as `.tres` and `.tscn` files, which become `.res` and `.scn`, respectively.
+
+Orchestrator also uses this same technique when the project's Orchestration is storede in text-based format with the `.torch` extension.
+During the export process, the `.torch` file is converted to a compressed, binary format using the `.os` extension, which greatly reduces the file size and speeds up game load times.
+
+:::tip
+When exporting a game, any `.os` binary format that is used in the project is exported as-is without any transformation.
+This is because the binary format is already in a compressed format that is suitable for fast game loads.
+:::
+
 ## Integrated help
 
 You can access the documentation related to any visual script node by selecting the node, right-click, and selecting the <EditorIcon name="Help"/> **View Documentation** option.
