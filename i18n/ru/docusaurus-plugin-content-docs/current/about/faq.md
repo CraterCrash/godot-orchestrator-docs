@@ -2,33 +2,33 @@
 sidebar_position: 4
 ---
 
-# Frequently asked questions
+# Часто задаваемые вопросы
 
-## General
+## Общие вопросы
 
-* **What license is Orchestrator code under?**<br/>
-Orchestrator is licensed under the <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink>.
+* **Под какой лицензией находится код Orchestrator?**<br/>
+Orchestrator лицензирован под <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">лицензией Apache, версия 2.0</ExternalLink>.
 
-* **What license is Orchestrator logo and marketing images under?**<br/>
-The Orchestrator logo and marketing images, including this website, are Copyright © 2023 Crater Crash Studios. All Rights Reserved.
+* **Под какой лицензией находятся логотип и маркетинговые изображения Orchestrator?**<br/>
+Логотип и маркетинговые изображения Orchestrator, включая этот веб-сайт, являются Copyright © 2023 Crater Crash Studios. Все права защищены.
 
-* **Do you offer support for this plugin?**<br/>
-Yes, we are committed to providing support for our plugin, simply leave your questions on our discord.
+* **Предоставляете ли вы поддержку для этого плагина?**<br/>
+Да, мы обязуемся предоставлять поддержку для нашего плагина, просто оставьте свои вопросы в нашем Discord.
 
-* **Where can I find the source code for Orchestrator?**<br/>
-You can find the source code on our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub repository</ExternalLink>.
+* **Где я могу найти исходный код Orchestrator?**<br/>
+Вы можете найти исходный код в нашем <ExternalLink href="https://github.com/Vahera/godot-orchestrator">репозитории GitHub</ExternalLink>.
 
-* **I have a suggestion or idea, how do I provide this to you?**<br/>
-Feel free to leave it in our discord in the `#suggestions` channel, or our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub repository</ExternalLink>.
+* **У меня есть предложение или идея, как я могу поделиться этим с вами?**<br/>
+Не стесняйтесь оставить его в нашем канале `#suggestions` на Discord или в нашем <ExternalLink href="https://github.com/Vahera/godot-orchestrator">репозитории GitHub</ExternalLink>.
 
-* **Are you affiliated with Godot or the Godot Engine?**<br/>
-  No, Crater Crash Studios is not affiliated with Godot or the Godot Engine.
+* **Вы аффилированы с Godot или движком Godot?**<br/>
+Нет, Crater Crash Studios не аффилирована с Godot или движком Godot.
 
-* **Does Orchestrator support Godot 4.2 and above?**<br/>
-  Yes, Orchestrator supports Godot 4.2 and above. It does not work with any version of Godot prior to 4.2.
+* **Поддерживает ли Orchestrator Godot 4.2 и выше?**<br/>
+Да, Orchestrator поддерживает Godot 4.2 и выше. Он не работает с версиями Godot ниже 4.2.
 
-## Troubleshooting
+## Устранение неполадок
 
-* **Error: "Required virtual method ScriptExtension::_get_language must be overridden before calling."**<br/>
-This is an unfortunate bug in the Godot engine, and it's normal for GDExtension plug-ins.
-This will have no impact on the plug-in's stability, so it's safe to ignore.
+* **Ошибка: "Required virtual method ScriptExtension::_get_language must be overridden before calling."**<br/>
+Это досадная ошибка в движке Godot, и это нормально для плагинов GDExtension.
+Это не повлияет на стабильность плагина, так что можно безопасно игнорировать.

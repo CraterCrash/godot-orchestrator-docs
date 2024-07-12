@@ -2,65 +2,66 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# Введение
 
-Welcome to the official documentation of **Orchestrator**, the ultimate Visual-Scripting plug-in for Godot.
-Orchestrator is a powerful, yet user-friendly plug-in that you can use to develop any type of game.
+Добро пожаловать в официальную документацию **Orchestrator**, лучшего визуально-скриптового плагина для Godot.
+Orchestrator — это мощный, но при этом удобный в использовании плагин, который вы можете использовать для разработки любого типа игр.
 
-This page gives a broad overview of the plug-in and this documentation, so you know where to start if you are a beginner or where to look should you need more specific information on a feature.
+Эта страница дает общее представление о плагине и документации, чтобы вы знали, с чего начать, если вы новичок, или где искать более конкретную информацию о функции.
 
-## Before you start
+## Прежде чем начать
 
-The [Tutorials and resources](../community/tutorials-and-resources) page has a list of video tutorials contributed by various authors, including the authors of the plug-in.
-If you prefer video to text, consider checking them out.
-Otherwise, [Getting Started](../getting-started/introduction) is a great starting point.
+На странице [Уроки и ресурсы](../community/tutorials-and-resources) представлен список видеоуроков от различных авторов, включая авторов плагина.
+Если вы предпочитаете видео вместо текста, обратите внимание на них.
+В противном случае, [Начало работы](../getting-started/introduction) — отличная отправная точка.
 
-In case you have trouble with one of the tutorials or your project, you can always find help through the Crater Crash Studios Discord community, our Forums, or the Godot Discord.
+Если у вас возникли проблемы с одним из уроков или вашим проектом, вы всегда можете найти помощь в сообществе Crater Crash Studios на Discord, на наших форумах или в Discord-сообществе Godot.
 
-## About Orchestrator
+## О Orchestrator
 
-Every game emerges from a single idea, and the creation of a game involves many moving parts.
-Orchestrator's goal is to provide a series of easy to use, highly customizable features to create game logic, interactions, and supporting logic using visual scripting rather than traditional text-based code.
+Каждая игра начинается с одной идеи, и создание игры включает множество движущихся частей.
+Цель Orchestrator — предоставить серию простых в использовании, высоко настраиваемых функций для создания игровой логики, взаимодействий и поддерживающей логики с использованием визуального скриптинга, а не традиционного текстового кода.
 
-Orchestrator is completely free and open source under the <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink>.
-The game you create is yours, down to the last line of code.
-This plug-in's development is fully independent and entirely community-driven, giving the community the ability to shape the plug-in's future for their needs and expectations.
+Orchestrator полностью бесплатен и имеет открытый исходный код под лицензией <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink>.
+Игра, которую вы создаете, принадлежит вам, до последней строки кода.
+Разработка этого плагина полностью независима и полностью ориентирована на сообщество, что дает сообществу возможность формировать будущее плагина в соответствии с их потребностями и ожиданиями.
 
-## Organization of the documentation
+## Организация документации
 
-This documentation is organized into several sections:
+Эта документация организована в несколько разделов:
 
-* **About** contains this introduction, as well as information about the plug-in, its history, licensing, authors, and more.
-It also contains the [Frequently asked questions](../about/faq) section, helping answer some of the most common questions.
+* **О проекте** содержит это введение, а также информацию о плагине, его истории, лицензировании, авторах и многом другом.
+Он также содержит раздел [Часто задаваемые вопросы](../about/faq), помогающий ответить на некоторые из самых распространенных вопросов.
 
-* **Getting Started** contains all necessary information on using the plug-in to make games.
-It starts with a **Step by Step** tutorial which should be the entry point for all new users.
-**This is the best place to start if you're new**!
+* **Начало работы** содержит всю необходимую информацию по использованию плагина для создания игр.
+Он начинается с **пошагового** руководства, которое должно быть отправной точкой для всех новых пользователей.
+**Это лучшее место для начала, если вы новичок**!
 
-* The **Manual** can be read or referenced as needed, in any order.
-It contains feature-specific tutorials and documentation.
+* **Руководство** можно читать или использовать по мере необходимости, в любом порядке.
+Оно содержит руководства и документацию по конкретным функциям.
 
-* **Contributing** provides information related to contributing back to Orchestrator, whether to the plug-in's code, documentation, examples, or other aspects.
-It describes how to report bugs, how contributor workflows are organized, and more.
-It also has sections intended for advanced users and contributors, with information on compiling the plug-in.
+* **Участие** предоставляет информацию, связанную с внесением вклада в Orchestrator, будь то код плагина, документация, примеры или другие аспекты.
+Оно описывает, как сообщать об ошибках, как организованы рабочие процессы участников и многое другое.
+Также есть разделы, предназначенные для опытных пользователей и участников, с информацией о компиляции плагина.
 
-* **Community** is dedicated to the life of the Orchestrator plug-in's community.
-It refers to various community outlets and discords, and contains a list of recommended tutorials and materials beyond this documentation.
+* **Сообщество** посвящено жизни сообщества плагина Orchestrator.
+Он ссылается на различные сообщества и Discord-каналы, а также содержит список рекомендуемых уроков и материалов за пределами этой документации.
 
-* The **Script Node Reference** documents each Orchestrator visual script node type, how you can use them, their purpose, and how to configure them.
-This is where you should check if you don't understand a specific node or are unsure how to locate a specific node or feature.
+* **Справочник по узлам скриптов** документирует каждый тип узла визуального скрипта Orchestrator, как вы можете их использовать, их назначение и как их настраивать.
+Здесь следует искать, если вы не понимаете конкретный узел или не уверены, как найти конкретный узел или функцию.
 
-In addition to this documentation, you may also want to take a look at the various <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples">Orchestrator example projects</ExternalLink>.
+В дополнение к этой документации, вы также можете взглянуть на различные <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples">примеры проектов Orchestrator</ExternalLink>.
 
-## About this documentation
+## О документации
 
-The Orchestrator community continuously writes, corrects, edits, and improves this documentation.
-We are always looking for more help.
-You can also contribute by opening GitHub issues or translating the documentation into your own language.
-If you are interested in helping, see [Ways to contribute](../contributing/ways-to-contribute) and [Writing documentation](../contributing/writing-documentation), or get in touch with the team on <ExternalLink href="https://discord.gg/J3UWtzWSkT">Discord</ExternalLink>.
+Сообщество Orchestrator постоянно пишет, исправляет, редактирует и улучшает эту документацию.
+Мы всегда ищем больше помощи.
+Вы также можете внести свой вклад, открывая вопросы на GitHub или переводя документацию на свой язык.
+Если вы хотите помочь, смотрите [Способы участия](../contributing/ways-to-contribute) и [Написание документации](../contributing/writing-documentation), или свяжитесь с командой на <ExternalLink href="https://discord.gg/J3UWtzWSkT">Discord</ExternalLink>.
 
-All documentation content is licensed under the permissive Creative Commons Attribution 3.0 (<ExternalLink href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</ExternalLink>) license, with attribution to *"Crater Crash Studios, LLC and the community"* unless otherwise noted.
+Все содержимое документации лицензировано по свободной лицензии Creative Commons Attribution 3.0 (<ExternalLink href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</ExternalLink>) с указанием авторства *"Crater Crash Studios, LLC и сообщество"*, если не указано иное.
 
-***Have fun reading and making games with Orchestrator!***
+***Приятного чтения и создания игр с Orchestrator!***
+
 
 

@@ -2,107 +2,108 @@
 sidebar_position: 5
 ---
 
-# Release policy
+# Политика релизов
 
-Orchestrator's release policy is constantly evolving.
-The description below provides a general idea of what to expect, but what may actually happen depends on multiple factors, including the needs of the community at any given moment.
+Политика релизов Orchestrator постоянно развивается.
+Описание ниже дает общее представление о том, чего ожидать, но фактически происходящее зависит от множества факторов, включая потребности сообщества в любой данный момент.
 
-## Versioning
+## Версионирование
 
-Orchestrator loosely follows <a href="https://semver.org/" class="external-link">Semantic Versioning</a> with a `major.minor.patch` version system.
+Orchestrator вольно следует <a href="https://semver.org/" class="external-link">семантическому версионированию</a> с системой версий `major.minor.patch`.
 
-* The `major` version is incremented when major compatibility breakages happen which imply significant porting work to move projects from one major version to another.
+* `major` версия увеличивается, когда происходят серьезные несовместимости, которые предполагают значительную работу по переносу проектов с одной основной версии на другую.
   
-  For example, porting Orchestrator-based projects from Orchestrator v2.x to Orchestrator v3.x requires running the project through a conversion tool, and then performing potentially a number of further adjustments manually for what the tool could not do automatically.
+  Например, перенос проектов, основанных на Orchestrator, с версии Orchestrator v2.x на Orchestrator v3.x требует запуска проекта через инструмент конверсии, а затем, возможно, выполнения ряда дополнительных корректировок вручную для того, что инструмент не смог сделать автоматически.
 
-* The `minor` version is incremented for feature releases that do not break compatibility in a major way.
-Minor compatibility breakage in very specific circumstances *may* happen in minor versions, but the vast majority of projects should not be affected or require significant porting work.
+* `minor` версия увеличивается для релизов с новыми функциями, которые не приводят к серьезным несовместимостям.
+Незначительные несовместимости в очень специфических обстоятельствах *могут* происходить в минорных версиях, но подавляющее большинство проектов не должны быть затронуты или требовать значительной работы по переносу.
 
-  This is because Orchestrator provides features that cover a vast array of Godot game engine features, like rendering, physics, and scripting.
-Fixing bugs or implementing new features in one area could require changes to a feature's behavior or modifying some code aspect, even if the change remains mostly backward compatible.
+  Это связано с тем, что Orchestrator предоставляет функции, охватывающие широкий спектр возможностей игрового движка Godot, таких как рендеринг, физика и скриптинг.
+Исправление ошибок или реализация новых функций в одной области может потребовать изменений в поведении функции или модификации некоторого аспекта кода, даже если изменение остается в основном обратно совместимым.
 
   :::tip
-  Upgrading to a new minor version is recommended for all users, but some testing should be done to ensure that your projects behave as expected.
+  Рекомендуется обновляться до новой минорной версии всем пользователям, но необходимо провести тестирование, чтобы убедиться, что ваши проекты работают как ожидалось.
   :::
 
-* The `patch`, or often referred to as maintenance or bugfix, version is incremented for maintenance releases which focus on fixing bugs, security issues, implementing new requirements, and backporting safe usable enhancements.
-Patch releases are backwards compatible.
+* `patch`, или часто называемая версиями обслуживания или исправления ошибок, увеличивается для выпусков обслуживания, которые фокусируются на исправлении ошибок, проблем безопасности, реализации новых требований и обратном переносе безопасных улучшений.
+Patch-релизы являются обратно совместимыми.
  
-  Patch versions may include minor new features which do not impact the existing API, and thus have no risk of impacting existing projects.
+  Patch-версии могут включать небольшие новые функции, которые не влияют на существующий API, и, следовательно, не представляют риска для существующих проектов.
 
   :::tip
-  Updating to new patch versions is therefore considered safe and strongly recommended to all users.
+  Обновление до новых patch-версий считается безопасным и настоятельно рекомендуется всем пользователям.
   :::
 
-We call `major.minor` combinations _stable branches_.
-Each stable branch starts with a `major.minor` release without the `0` for `patch`) and is further developed for maintenance releases in a Git branch of the same name (for example patch updates for the 2.0 stable branch are developed in the `2.0` Git branch).
+Мы называем комбинации `major.minor` _стабильными ветками_.
+Каждая стабильная ветка начинается с релиза `major.minor` без `0` для `patch`, и далее развивается для выпусков обслуживания в Git-ветке с тем же именем (например, обновления для стабильной ветки 2.0 разрабатываются в Git-ветке `2.0`).
 
-## Release support timeline
+## Таймлайн поддержки релизов
 
-Stable branches are supported *at least* until the next stable branch is released and has received its first patch update.
-In practice, we support stable branches on a *best effort* basis for as long as they have active users who need maintenance updates.
+Стабильные ветки поддерживаются *как минимум* до выпуска следующей стабильной ветки и получения ею первого обновления patch.
+На практике, мы поддерживаем стабильные ветки на *максимально возможных* основаниях, пока у них есть активные пользователи, которым нужны обновления обслуживания.
 
-Whenever a new major version is released, we make the previous stable branch a long-term supported release, and do our best to provide fixes for issues encountered by users of that branch who cannot port complex projects to the new major version.
+Каждый раз, когда выпускается новая основная версия, мы делаем предыдущую стабильную ветку выпуском с долгосрочной поддержкой и делаем все возможное, чтобы предоставлять исправления для проблем, с которыми сталкиваются пользователи этой ветки, которые не могут перенести сложные проекты на новую основную версию.
 
-In a given minor release series, only the latest patch releases receives support.
-If you experience an issue using an older patch release, please upgrade to the latest patch release of that series and test again before reporting issues on GitHub.
+В каждой серии минорных релизов поддерживаются только последние patch-релизы.
+Если у вас возникла проблема с использованием более старого patch-релиза, пожалуйста, обновитесь до последнего patch-релиза этой серии и протестируйте снова перед тем, как сообщать о проблемах на GitHub.
 
-| Version                 | Release Date             | Support Level                                                                                                                |
-|:------------------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| Orchestrator 2.1 (main) | June 2024<br/>(estimate) | *Development.* Receives new features, usability and performance improvements, as well as bug fixes, while under development. |
-| Orchestrator 2.0        | March 2024               | Receives fixes for bugs and security issues, as well as patches that enable platform support and other minor features.       |
-| Orchestrator 1.1        | December 2023            | No longer supported.                                                                                                         |
-| Orchestrator 1.0        | August 2023              | No longer supported (last update: 1.0.5).                                                                                    |
+| Версия                 | Дата релиза              | Уровень поддержки                                                                                                               |
+|:-----------------------|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| Orchestrator 2.1 (основная) | Июнь 2024<br/>(оценка) | *Разработка.* Получает новые функции, улучшения удобства использования и производительности, а также исправления ошибок, пока находится в разработке. |
+| Orchestrator 2.0        | Март 2024               | Получает исправления ошибок и проблем безопасности, а также патчи, которые обеспечивают поддержку платформ и другие небольшие функции. |
+| Orchestrator 1.1        | Декабрь 2023            | Больше не поддерживается.                                                                                                      |
+| Orchestrator 1.0        | Август 2023             | Больше не поддерживается (последнее обновление: 1.0.5).                                                                        |
 
-Pre-release Orchestrator plug-in versions aren't intended to be used in production and are provided for testing purposes only.
+Предрелизные версии плагина Orchestrator не предназначены для использования в производственных условиях и предоставляются только для тестирования.
 
-## Which version should I use for a new project?
+## Какую версию следует использовать для нового проекта?
 
-We recommend using Orchestrator 2.0 for all new projects, as the Orchestrator 1.x series has been discontinued.
+Мы рекомендуем использовать Orchestrator 2.0 для всех новых проектов, так как серия Orchestrator 1.x больше не поддерживается.
 
-## When is the next release out?
+## Когда выйдет следующий релиз?
 
-The Orchestrator contributors do not work under any strict deadlines, but we strive to publish minor releases relatively frequently.
-We generally try and focus on a three-month cadence for a minor release, starting at the first month of the calendar quarter and releasing a stable version of that minor release toward the end of the quarter.
+Участники Orchestrator не работают по строгим срокам, но мы стремимся публиковать минорные релизы относительно часто.
+Мы обычно стараемся придерживаться трехмесячного цикла для минорного релиза, начиная с первого месяца календарного квартала и выпуская стабильную версию этого минорного релиза к концу квартала.
 
-For example, Orchestrator 2.0 entered pre-release review for testing at the start of January 2024, was released stable in March 2024.
-In addition, Orchestrator 2.1 entered development in early April and is planned for a stable release toward the end of June 2024.
+Например, Orchestrator 2.0 вошел в предрелизное рассмотрение для тестирования в начале января 2024 года, был выпущен стабильным в марте 2024 года.
+Кроме того, Orchestrator 2.1 вошел в разработку в начале апреля и планируется к стабильному выпуску к концу июня 2024 года.
 
-## What are the criteria for compatibility across versions?
-
-:::info
-This section is intended to be used by contributors to determine which changes are safe for a given release.
-This list is in no way exhaustive; it only outlines the most common situations seen during development.
-:::
-
-The following are acceptable changes in patch releases:
-
-* Fixing a bug in a way that has no major negative impact on most projects, such as a visual or physics bug.
-If fixing a bug has a negative impact that could jeopardize a lot of projects, it should be made optional (using a project setting).
-* Adding a new optional parameter to a method.
-* Small-scale editor usability tweaks.
+## Каковы критерии совместимости между версиями?
 
 :::info
-Note that maintainers may be more conservative with fixes in subsequent patch releases.
-For instance, 2.0.1 may receive more impactful fixes than 2.0.2.
+Этот раздел предназначен для использования участниками, чтобы определить, какие изменения безопасны для данного релиза.
+Этот список никоим образом не исчерпывающий; он только описывает наиболее распространенные ситуации, наблюдаемые во время разработки.
 :::
 
-The following changes are acceptable in minor releases, but not patch releases:
+Следующие изменения допустимы в patch-релизах:
 
-* Significant new features.
-* Renaming of method parameters due to integration limitations with C# and GDScript.
-* Deprecating methods, variables, or classes.
-This is done by adding a deprecated flag to the class reference, which should show in the editor.
-When a method is marked deprecated, it's slated to be removed in the next *major* release.
-* Changes that affect the default visuals.
-* Bug fixes that significantly change the behavior or output, with the aim to meet user expectations better.
-In comparison, in patch releases, we favor keeping buggy behavior to avoid breaking existing projects who may rely on that wrong behavior or use workarounds.
-* Performance optimizations that result in visual changes.
+* Исправление ошибки таким образом, чтобы это не имело серьезного негативного влияния на большинство проектов, например, визуальной или физической ошибки.
+Если исправление ошибки имеет негативное влияние, которое может поставить под угрозу многие проекты, оно должно быть сделано опциональным (используя настройку проекта).
+* Добавление нового опционального параметра к методу.
+* Небольшие улучшения удобства использования редактора.
 
-The following changes are considered **compatibility-breaking** and can only occur in new major releases:
+:::info
+Обратите внимание, что мейнтейнеры могут быть более консервативными с исправлениями в последующих patch-релизах.
+Например, 2.0.1 может получить более значительные исправления, чем 2.0.2.
+:::
 
-* Renaming or removing methods, variables, or classes.
-* Modifying a node's inheritance or behavior to where the node acts entirely different.
-* Changing the default value of a setting in a way that affects existing projects.
+Следующие изменения допустимы в минорных релизах, но не в patch-релизах:
 
-As Orchestrator 3.0 hasn't been branched off yet, we strongly discourage any compatibility breaking changes.
+* Значительные новые функции.
+* Переименование параметров методов из-за ограничений интеграции с C# и GDScript.
+* Устаревание методов, переменных или классов.
+Это делается путем добавления флага устаревания в справочник классов, который должен отображаться в редакторе.
+Когда метод помечен как устаревший, он планируется к удалению в следующем *основном* релизе.
+* Изменения, влияющие на визуальное оформление по умолчанию.
+* Исправления ошибок, которые значительно изменяют поведение или вывод, с целью лучше соответствовать ожиданиям пользователей.
+Для сравнения, в patch-релизах мы предпочитаем сохранять неправильное поведение, чтобы избежать нарушения существующих проектов, которые могут полагаться на это неправильное поведение или использовать обходные пути.
+* Оптимизации производительности, которые приводят к визуальным изменениям.
+
+Следующие изменения считаются **нарушающими совместимость** и могут происходить только в новых основных релизах:
+
+* Переименование или удаление методов, переменных или классов.
+* Изменение наследования или поведения узла таким образом, что узел действует совершенно иначе.
+* Изменение значения настройки по умолчанию таким образом, что это влияет на существующие проекты.
+
+Поскольку Orchestrator 3.0 еще не был выделен в отдельную ветку, мы настоятельно не рекомендуем вносить изменения, нарушающие совместимость.
+

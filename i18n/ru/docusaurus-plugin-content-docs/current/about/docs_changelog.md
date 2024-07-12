@@ -2,17 +2,17 @@
 sidebar_position: 6
 ---
 
-# Documentation changelog
+# Журнал изменений документации
 
-The documentation is continually being improved.
-New releases include new pages, fixes, and updates to existing pages, and many updates to the [Script Node Reference](../nodes/all_nodes).
-Below is a list of new pages added since version 2.0.
+Документация постоянно улучшается.
+Новые выпуски включают новые страницы, исправления и обновления существующих страниц, а также множество обновлений в [Справочнике по узлам скриптов](../nodes/all_nodes).
+Ниже приведен список новых страниц, добавленных с версии 2.0.
 
 :::info
-This document only contains new pages so not all changes are reflected.
+Этот документ содержит только новые страницы, поэтому не все изменения отражены.
 :::
 
-### New pages since version 2.0
+### Новые страницы с версии 2.0
 
-- Added [Memory](../nodes/memory) nodes for [Creating Objects](../nodes/memory#creating-objects) and [Freeing Objects](../nodes/memory#freeing-objects) details.
-- Added [Method Chaining](../nodes/functions#method-chaining) details.
+- Добавлены узлы [Memory](../nodes/memory) для [Создания объектов](../nodes/memory#creating-objects) и [Освобождения объектов](../nodes/memory#freeing-objects).
+- Добавлены детали [Цепочки методов](../nodes/functions#method-chaining).

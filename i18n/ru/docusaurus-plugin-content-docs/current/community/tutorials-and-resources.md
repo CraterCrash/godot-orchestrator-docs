@@ -1,17 +1,17 @@
 
-# Tutorials and resources
+# Уроки и ресурсы
 
-This page maintains a list of various tutorials and resources created by Crater Crash Studios and community contributors.
+На этой странице содержится список различных уроков и ресурсов, созданных Crater Crash Studios и участниками сообщества.
 
-If you believe something is missing here, submit a <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">Pull Request</ExternalLink>.
+Если вы считаете, что здесь чего-то не хватает, отправьте <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">Pull Request</ExternalLink>.
 
-## Tutorials
+## Уроки
 
-* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-2d">Godot Documentation 2D Tutorial with Orchestrator</ExternalLink>
-* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-3d">Godot Documentation 3D Tutorial with Orchestrator</ExternalLink>
-* [Step-By-Step Example Guide](../getting-started/step-by-step)
+* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-2d">Документация Godot: Урок 2D с Orchestrator</ExternalLink>
+* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-3d">Документация Godot: Урок 3D с Orchestrator</ExternalLink>
+* [Пошаговое руководство](../getting-started/step-by-step)
 
-## Showcase Videos
+## Видеоролики
 
-* <ExternalLink href="https://www.youtube.com/watch?v=Y53M53RYa_0">Godot Visual Script is Back!</ExternalLink> - Credit: @Gamesfromscratch, February 2024.
-* <ExternalLink href="https://www.youtube.com/watch?v=eHo8kH3VV2c">I Tried Godot VisualScript In 2024 ( And Found An Alternative )</ExternalLink> - Credit: @Code_It_All, April 2024.
+* <ExternalLink href="https://www.youtube.com/watch?v=Y53M53RYa_0">Визуальный скрипт Godot вернулся!</ExternalLink> - Автор: @Gamesfromscratch, февраль 2024.
+* <ExternalLink href="https://www.youtube.com/watch?v=eHo8kH3VV2c">Я попробовал Godot VisualScript в 2024 году (и нашел альтернативу)</ExternalLink> - Автор: @Code_It_All, апрель 2024.

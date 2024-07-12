@@ -3,104 +3,102 @@ sidebar_position: 5
 toc_max_heading_level: 4
 ---
 
-# Complying with licenses
+# Соблюдение лицензий
 
-## What are licenses?
+## Что такое лицензии?
 
-Orchestrator is created and distributed under the <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink> license.
-The project does not have a sole owner, as every contributor that submits code to the project does so under the same license and keeps ownership of their contributions.
+Orchestrator создается и распространяется под лицензией <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, версия 2.0</ExternalLink>.
+Проект не имеет единственного владельца, так как каждый участник, который вносит код в проект, делает это под той же лицензией и сохраняет право собственности на свои вклад.
 
-The license is the legal requirement for you (or your company) to use and distribute the software (and derivative works, including games made with it).
-Your game or project can have a different license, but it still needs to comply with the original one.
+Лицензия является юридическим требованием для вас (или вашей компании) использовать и распространять программное обеспечение (и производные работы, включая игры, сделанные с его использованием).
+Ваша игра или проект могут иметь другую лицензию, но они все равно должны соответствовать исходной лицензии.
 
 :::tip
-In your project's credits screen, remember to include third-party notices for assets you're using, such as textures, models, sounds, music, and fonts.
-Free assets in particular often come with licenses that require attribution.
-Double-check their licenses before using those in public projects.
+На экране с указанием авторов вашего проекта не забудьте включить уведомления третьих сторон о ресурсах, которые вы используете, таких как текстуры, модели, звуки, музыка и шрифты.
+Особенно часто бесплатные ресурсы сопровождаются лицензиями, требующими указания авторства.
+Тщательно проверьте их лицензии перед использованием в публичных проектах.
 :::
 
-### Requirements {#requirements}
+### Требования {#requirements}
 
-For derived works that include Orchestrator, but do not modify or change its source, include the following:
+Для производных работ, которые включают Orchestrator, но не изменяют его исходный код, включите следующее:
 
 ```text
-  This game uses Orchestrator, which is available under the following license:
+  Эта игра использует Orchestrator, который доступен под следующей лицензией:
 
-  Copyright (c) 2023-present Crater Crash Studios, LLC and it's contributors.
+  Copyright (c) 2023-настоящее время Crater Crash Studios, LLC и его участники.
   
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+  Лицензировано по Apache License, Version 2.0 (далее "Лицензия");
+  вы не можете использовать этот файл, кроме как в соответствии с Лицензией.
+  Вы можете получить копию Лицензии по адресу
   
       http://www.apache.org/licenses/LICENSE-2.0
   
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-```
+  Если это не требуется по применимому законодательству или письменно согласовано, программное
+  обеспечение, распространяемое по Лицензии, распространяется на условиях "КАК ЕСТЬ",
+  БЕЗ ГАРАНТИЙ ИЛИ УСЛОВИЙ ЛЮБОГО РОДА, явных или подразумеваемых.
+  См. Лицензию для получения конкретных управляющих прав и ограничений.
 
-:::danger[Critical]
-For works that not only include Orchestrator, but includes a modified version of the plug-in, be sure you company with the full <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink> requirements.
-These requirements not only require the inclusion of the above text, but all source files of the original work must retain the original copyright and license preamble.
-Additionally, any changes made to the source must be recorded in the headers of the source files.
-While changes are not required to be submitted back to the original project, they're welcomed!
+
+:::danger[Критично]
+Для работ, которые не только включают Orchestrator, но и включают модифицированную версию плагина, убедитесь, что вы соблюдаете все требования <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, версия 2.0</ExternalLink>.
+Эти требования включают не только вышеуказанный текст, но и то, что все исходные файлы оригинальной работы должны сохранять исходное авторское право и преамбулу лицензии.
+Кроме того, любые изменения, внесенные в исходный код, должны быть зафиксированы в заголовках исходных файлов.
+Хотя изменения не обязательно должны быть отправлены обратно в исходный проект, они приветствуются!
 :::
+
+
 
 :::tip
-Your game does not need to be under the same license as Orchestrator.
-You are free to release your Godot project under any license, and to create commercial games with this plug-in.
+Ваша игра не обязательно должна быть под той же лицензией, что и Orchestrator.
+Вы можете выпустить свой проект Godot под любой лицензией и создавать коммерческие игры с этим плагином.
 :::
 
-### Inclusion
+### Включение
 
-The license does not specify specifically how it must be included in your game.
-There are a number of options that you can freely use depending on how you distribute or wish to share license information with your users.
-These are the most common approaches, and you only need to implement one, not all.
+Лицензия не указывает конкретно, как она должна быть включена в вашу игру.
+Существует несколько вариантов, которые вы можете использовать в зависимости от того, как вы распространяете или хотите поделиться информацией о лицензии с вашими пользователями.
+Это наиболее распространенные подходы, и вам нужно реализовать только один, а не все.
 
-#### Credits screen
+#### Экран с указанием авторов
 
-Include the above [License text](#requirements) somewhere in the credits screen. 
-It can be at the bottom after showing the rest of the credits.
-Most studios use this approach with open source licenses.
+Включите вышеупомянутый [текст лицензии](#requirements) где-нибудь на экране с указанием авторов.
+Он может быть внизу после отображения остальных авторов.
+Большинство студий используют этот подход с лицензиями с открытым исходным кодом.
 
-#### Licenses screen
+#### Экран с лицензиями
 
-Some games have a special menu (often in the settings) to display licenses.
-This menu is typically accessed with a button called `Third-party Licenses` or `Open Source Licenses`.
-If your game uses such a style, include the above [License text](#requirements) there.
+Некоторые игры имеют специальное меню (часто в настройках) для отображения лицензий.
+Это меню обычно доступно через кнопку `Лицензии третьих сторон` или `Лицензии с открытым исходным кодом`.
+Если ваша игра использует такой стиль, включите вышеупомянутый [текст лицензии](#requirements) там.
 
-#### Accompanying file
+#### Сопроводительный файл
 
-If the game is distributed on desktop platforms, a file that contains the [License text](#requirements) can be added to the software that is installed on the user's PC.
+Если игра распространяется на настольных платформах, файл, содержащий [текст лицензии](#requirements), может быть добавлен к программному обеспечению, установленному на ПК пользователя.
 
-#### Printed manual
+#### Печатное руководство
 
-If the game includes printed manuals, [License text](#requirements) can be included there.
+Если игра включает печатные руководства, [текст лицензии](#requirements) можно включить туда.
 
-### Third-party licenses
+### Лицензии третьих сторон
 
-Orchestrator is free and open-source, and its built using other free and open-source technologies.
-Each of those technologies have their own respective licenses, and thanks to them, Orchestrator is possible.
+Orchestrator бесплатен и имеет открытый исходный код, и его создание стало возможным благодаря другим бесплатным и открытым технологиям.
+Каждая из этих технологий имеет свои собственные лицензии, и благодаря им Orchestrator возможен.
 
 #### Godot GDExtension (godot-cpp)
 ```text
-Copyright (c) 2017-present Godot Engine contributors.
+Copyright (c) 2017-настоящее время участники Godot Engine.
  
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software
-and associated documentation files (the "Software"), to deal in the Software without restriction, 
-including without limitation the rights to use, copy, modify, merge, publish, distribute, 
-sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Настоящим предоставляется разрешение, бесплатно, любому лицу, получившему копию этого программного обеспечения
+и сопутствующих файлов документации (далее "Программное обеспечение"), использовать Программное обеспечение без ограничений,
+включая, помимо прочего, права на использование, копирование, изменение, слияние, публикацию, распространение,
+сублицензирование и/или продажу копий Программного обеспечения, а также разрешение лицам, которым Программное обеспечение предоставляется,
+делать это, при соблюдении следующих условий:
 
-The above copyright notice and this permission notice shall be included in all copies or 
-substantial portions of the Software.
+Вышеуказанное уведомление об авторских правах и это разрешение должны быть включены во все копии
+или значительные части Программного обеспечения.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
-BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
+ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ "КАК ЕСТЬ", БЕЗ ГАРАНТИЙ ЛЮБОГО РОДА, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ,
+НО НЕ ОГРАНИЧИВАЯСЬ, ГАРАНТИЯМИ КОММЕРЧЕСКОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННОЙ ЦЕЛИ И НЕНАРУШЕНИЯ ПРАВ.
+НИ В КОЕМ СЛУЧАЕ АВТОРЫ ИЛИ ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ИСКИ, УБЫТКИ ИЛИ ДРУГИЕ ОБЯЗАТЕЛЬСТВА, 
+НЕЗАВИСИМО ОТ ФОРМЫ ДЕЙСТВИЯ, ВОЗНИКШИЕ ИЗ ИЛИ В СВЯЗИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ ИЛИ ИСПОЛЬЗОВАНИЕМ ИЛИ ИНЫМИ ДЕЙСТВИЯМИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.

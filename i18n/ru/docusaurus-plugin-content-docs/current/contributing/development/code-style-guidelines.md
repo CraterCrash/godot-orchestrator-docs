@@ -1,84 +1,80 @@
+# Руководство по стилю кода
 
-# Code style guidelines
+При внесении вклада в исходный код Orchestrator от вас ожидается соблюдение приведенных ниже рекомендаций по стилю.
+Некоторые из них проверяются с помощью непрерывной интеграции, и рецензенты могут попросить вас исправить потенциальные проблемы, поэтому, в общем, хорошей идеей будет настроить вашу систему, как указано ниже, чтобы уменьшить количество проблем с вашими коммитами на раннем этапе.
 
-When contributing to Orchestrator's source ode, you will be expected to follow the style guidelines outlined below.
-Some of them are checked via Continuous Integration and reviewers will ask that you fix potential issues, so it's generally a godo ide to set up your system as outlined below to mitigate issues with your commits early.
+## C++ и Objective-C
 
-## C++ and Objective-C
+Письменных рекомендаций нет, но общий стиль кода согласован с основными разработчиками и применяется с помощью beautifier `clang-format`.
+Это делает следующее для вас:
 
-There are no written guidelines, but the code's general style is agreed upon by the core developers, and is enforced via the `clang-format` code beautifier.
-This takes care of the following for you:
+* Отступы и выравнивание основаны на табуляциях (соответственно один и два таба)
+* Один пробел вокруг операторов соответствия и присваивания, а также после запятых
+* Операторы указателей и ссылок присоединяются к имени типа, а не к идентификатору переменной
+* См. ниже для включений заголовков
 
-* Indentation and alignment are both tab based (respectively one and two tabs)
-* One space around match and assignment operators, as well as after commas
-* Pointer and reference operators are affixed to the type name, not the variable identifier
-* See further down for header includes
+Правила для clang-format изложены в файле `.clang-format` в репозитории Orchestrator на Git.
 
-The rules for the clang-format are outlined in the `.clang-format` file in the Orchestrator Git repository.
-
-As long as your style matches the surrounding code and that you are not introducing trailing whitespaces or space-indentation, you should be fine.
-If you plan to contribute regularly, however, we strongly advise that you set up clang-format to check and fix all your commits.
+Пока ваш стиль соответствует окружающему коду и вы не вводите конечные пробелы или пробелы-отступы, все должно быть в порядке.
+Однако, если вы планируете регулярно вносить вклад, настоятельно рекомендуем настроить clang-format для проверки и исправления всех ваших коммитов.
 
 :::warning
-Orchestrator's code style guidelines should not be applied to third-party or external git submodule code.
-In other words, it should only be applied to the files contained within the `/src` directory.
+Руководство по стилю кода Orchestrator не должно применяться к коду сторонних или внешних подмодулей git.
+Другими словами, оно должно применяться только к файлам, находящимся в каталоге `/src`.
 :::
 
-## File names
+## Имена файлов
 
-Use `snake_case` for file names.
-Avoid using capital letters, as these are handled slightly differently across operating systems.
+Используйте `snake_case` для имен файлов.
+Избегайте использования заглавных букв, так как они обрабатываются по-разному в разных операционных системах.
 
-## Header includes
+## Включения заголовков
 
-When adding new C++ or Objective-C files, or including new headers in existing ones, the following rules should be followed:
+При добавлении новых файлов C++ или Objective-C или включении новых заголовков в существующие файлы, должны соблюдаться следующие правила:
 
-* The first lines in the file should be Orchestrator's copyright header and Apache License 2.0, copy-pasted from another file.
-* In a `.h` header, include guards should be used with the form `ORCHESTRATOR_FILENAME_H` or `OSCRIPT_FILENAME_H`.
-* In a `.cpp` file (e.g. `filename.cpp`), the first include should be the one where the class is declared (e.g. `#include "filename.h"`), followed by an empty line for separation.
-* Then come headers from Orchestrator's code base, included in alphabetical order, with paths relative to the root folder. The includes should be surrounded using quotes, e.g. `#include "core/object.h"`. 
-The block of Orchestrator includes should then be followed by an empty line for separation.
-* Then come headers from Godot's `godot-cpp` library, included in alphabetical order. The includes should be surrounded with brackets, e.g. `#include <godot_cpp/classes/control.hpp>`, followed by an empty line for separation.
-* Finally, any remaining includes should be included, again using the brackets, listed in alphabetical order.
+* Первые строки в файле должны содержать заголовок авторских прав Orchestrator и лицензию Apache 2.0, скопированные из другого файла.
+* В заголовке `.h` должны использоваться охранители включения в форме `ORCHESTRATOR_FILENAME_H` или `OSCRIPT_FILENAME_H`.
+* В файле `.cpp` (например, `filename.cpp`) первым должно быть включение, где объявлен класс (например, `#include "filename.h"`), за которым следует пустая строка для разделения.
+* Затем идут заголовки из базы кода Orchestrator, включенные в алфавитном порядке, с путями относительно корневого каталога. Включения должны быть окружены кавычками, например, `#include "core/object.h"`.
+Блок включений Orchestrator должен быть отделен пустой строкой.
+* Затем идут заголовки из библиотеки `godot-cpp` Godot, включенные в алфавитном порядке. Включения должны быть окружены скобками, например, `#include <godot_cpp/classes/control.hpp>`, за которыми следует пустая строка для разделения.
+* Наконец, должны быть включены все оставшиеся заголовки, опять же используя скобки, перечисленные в алфавитном порядке.
 
-```text title="Example Header"
-// This file is part of the Godot Orchestrator project.
+```text title="Пример заголовка"
+// Этот файл является частью проекта Godot Orchestrator.
 //
-// Copyright (c) 2023-present Crater Crash Studios LLC and its contributors.
+// Copyright (c) 2023-настоящее время Crater Crash Studios LLC и его участники.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Лицензировано по Apache License, версия 2.0 (далее "Лицензия");
+// вы не можете использовать этот файл, кроме как в соответствии с Лицензией.
+// Вы можете получить копию Лицензии по адресу
 //
 //		http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Если это не требуется по применимому законодательству или письменно согласовано, программное
+// обеспечение, распространяемое по Лицензии, предоставляется "КАК ЕСТЬ",
+// БЕЗ ГАРАНТИЙ ИЛИ УСЛОВИЙ ЛЮБОГО РОДА, явных или подразумеваемых.
+// См. Лицензию для получения конкретных управляющих прав и ограничений.
 //
 #ifndef ORCHESTRATOR_ABOUT_DIALOG_H
 ...
 #endif ORCHESTRATOR_ABOUT_DIALOG_H
-```
 
-```text title="Example Implementation (cpp)"
-// This file is part of the Godot Orchestrator project.
+
+// Этот файл является частью проекта Godot Orchestrator.
 //
-// Copyright (c) 2023-present Crater Crash Studios LLC and its contributors.
+// Copyright (c) 2023-настоящее время Crater Crash Studios LLC и его участники.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Лицензировано по Apache License, версия 2.0 (далее "Лицензия");
+// вы не можете использовать этот файл, кроме как в соответствии с Лицензией.
+// Вы можете получить копию Лицензии по адресу
 //
 //		http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Если это не требуется по применимому законодательству или письменно согласовано, программное
+// обеспечение, распространяемое по Лицензии, предоставляется "КАК ЕСТЬ",
+// БЕЗ ГАРАНТИЙ ИЛИ УСЛОВИЙ ЛЮБОГО РОДА, явных или подразумеваемых.
+// См. Лицензию для получения конкретных управляющих прав и ограничений.
 //
 #include "about_dialog.h"
 
@@ -102,29 +98,29 @@ The block of Orchestrator includes should then be followed by an empty line for 
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/classes/theme.hpp>
 #include <godot_cpp/classes/v_box_container.hpp>
-```
-## Class names
 
-All C++ class names should use **Pascal Case**.
+## Имена классов
 
-Additionally, there are two naming conventions that should be followed, depending on the context of the class.
-Editor functionality related classes should be prefixed with `Orchestrator`.
-Runtime script functionality related classes should be prefixed with `OScript`.
+Все имена классов C++ должны использовать **Pascal Case**.
 
-* **Editor Example**: `OrchestratorMainView` or `OrchestratorPlugin`.
-* **Script Example**: `OScriptNodeConstant` or `OScriptNodeInitContext`.
+Кроме того, существуют два соглашения об именах, которых следует придерживаться в зависимости от контекста класса.
+Классы, связанные с функциональностью редактора, должны иметь префикс `Orchestrator`.
+Классы, связанные с функциональностью скриптов во время выполнения, должны иметь префикс `OScript`.
 
-As a rule of thumb, we prefer one class per file, but there are some instances where it may make sense to include multiple classes within a single file.
-Please do so sparsely, preferring one class per file ideally.
+* **Пример для редактора**: `OrchestratorMainView` или `OrchestratorPlugin`.
+* **Пример для скрипта**: `OScriptNodeConstant` или `OScriptNodeInitContext`.
 
-## Function and variable names
+Как правило, мы предпочитаем один класс на файл, но есть случаи, когда имеет смысл включать несколько классов в один файл.
+Пожалуйста, делайте это редко, предпочтительно один класс на файл.
 
-All functions and variables should be defined using `snake_case`.
-If a function or variable is not public, it should be prefixed with an underscore (`_`).
+## Имена функций и переменных
 
-Additionally, all function arguments should be prefixed with `p_` unless the value is being returned to the caller, in which case it should be prefixed with `r_`.
+Все функции и переменные должны быть определены с использованием `snake_case`.
+Если функция или переменная не является публичной, она должна иметь префикс подчеркивания (`_`).
 
-```cpp title="Example"
+Кроме того, все аргументы функций должны иметь префикс `p_`, если значение не возвращается вызывающему, в этом случае оно должно иметь префикс `r_`.
+
+```cpp title="Пример"
 class MyClass : public Resource
 {
   GDCLASS(MyClass, Resource)
@@ -137,7 +133,7 @@ protected:
 public:
   String get_the_name() const;
 };
-```
+
 
 Additionally, function and variables of like scope should be grouped together.
 Lastly, all functions that do not override a parent class method should be documented.
