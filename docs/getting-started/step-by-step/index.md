@@ -74,7 +74,7 @@ Click the **Create** button to create the script.
 
 <Figure image="/img/step-by-step/create-orchestration-dialog.png" caption="Attach node script dialog"></Figure>
 
-The Orchestrator **<EditorIcon name="ClassList"/> EventGraph** workspace should appear with your `sprite_2d.os` orchestration open.
+The Orchestrator **<EditorIcon name="ClassList"/> EventGraph** workspace should appear with your `sprite_2d.torch` orchestration open.
 
 <Figure image="/img/step-by-step/create-orchestration-editor.png" caption="Editor window"></Figure>
 
@@ -92,7 +92,7 @@ Let's make it print the text "Hello, world!" to the output bottom panel to get s
 Lastly, we need to add a Godot event callback so that our **Print String** node outputs the value.
 
 1. Press the <EditorIcon name="Override"/> button located at the top right of the **Functions** panel.
-2. Search or the `Call Init` action.
+2. Search for the `Init` action, found in the **Methods > Objects** category.
 3. To add the node, either press the **Add** button or simply hit **Enter**.
 
 With the two nodes in the **Graph**, using your mouse:
@@ -103,7 +103,7 @@ With the two nodes in the **Graph**, using your mouse:
 If done successfully, the two nodes should be connected.
 
 :::note
-The **Init Event** is a special callback that represents the `_init()` function in GDScript, which acts like a constructor.
+The **Init** event is a special callback that represents the `_init()` function in GDScript, which acts like a constructor.
 The Godot Engine calls this `_init()` on every object or node when it gets created, as long as this function is defined.
 :::
 
@@ -156,7 +156,7 @@ Angles in Godot work in radians by default, but you have built-in functions avai
 
 To move our icon, we need to update its position and rotation every frame in the game loop.
 
-We can use the **Process Event**, a Godot virtual override function, to do this.
+We can use the **Process** event, a Godot virtual override function, to do this.
 If your orchestration extends a class that extends the `Node` class, like `Sprite2D`, this function will be called every frame and provide an argument called `delta`, which is the elapsed time since the last frame in `seconds`.
 
 :::important
@@ -168,10 +168,10 @@ Most games aim for 60 FPS, although you might find values lower or higher.
 We are going to add the **Process Event** node much like we did the **Init Event** node.
 
 1. Press the <EditorIcon name="Override"/> button on the top-right of the **Functions** panel.
-2. In the **All Actions** dialog, locate the `Call Process Event` node.
+2. In the **All Actions** dialog, locate the `Process` event, in the **Methods > Node** category.
 3. To add the node, either press **Add** or simply hit **Enter**.
 
-With the **Process Event** node on the graph, we need to connect logic to this node to perform this computation, but visually:
+With the **Process** event node on the graph, we need to connect logic to this node to perform this computation, but visually:
 
 ```python
 rotation += angular_speed * delta
@@ -191,7 +191,7 @@ To do this visually, we need to add several more nodes to our graph:
 6. Select the `Set Rotation` choice and either press **Add** or simply hit **Enter**.
 7. Right-click the graph area once more to open the **All Actions** dialog.
 8. Search for `Multiply`.
-9. Select the "Multiply (Float)" choice that is under the **Float** category.
+9. Select the `Float Multiply Float` choice that is under the **Types > Float > Operators** category.
 10. Either press **Add** or simply hit **Enter**.
 
 Finally, match all the nodes as shown here.
@@ -206,7 +206,7 @@ Run the scene in the editor to see the icon turn in-place.
 #### Apply movement
 
 Let's now make the node move.
-In order to do this, we need to add one additional step inside the **Process Event** node logic.
+In order to do this, we need to add one additional step inside the **Process** event node logic.
 
 ```python
 var velocity = Vector2.UP.rotated(rotation) * speed
@@ -224,12 +224,12 @@ To set this up visually, we need to:
 1. Right-click the graph to open the **All Actions** dialog.
 2. Search for `Type Constant`
 3. Select the **Type Constant** node and set the type as `Vector2` and the constant as `UP` in the **Inspector**.
-4. Right-click the graph to open the *All Actions** dialog.
+4. Right-click the graph to open the **All Actions** dialog.
 5. Search for `Rotated`, selection the choice under the **Vector2** category.
 6. Next add three math operator nodes
    * Multiply `Vector2` by `Integer`.
    * Multiply `Vector2` by `Float`.
-   * Multiply `Vector2` by `Vector2`.
+   * Addition `Vector2` by `Vector2`.
 7. Finally add two function call nodes
    * Search for `Get Position`
    * Search for `Set Position`
@@ -249,7 +249,7 @@ In a future tutorial, you will learn another approach to moving and detecing col
 
 ### Complete script
 
-Here is what the complete `sprite_2d.os` orchestration script looks like for reference.
+Here is what the complete `sprite_2d.torch` orchestration script looks like for reference.
 
 <Figure image="/img/step-by-step/apply-movement.png" caption="Apply movement based on angular_speed, speed, and delta time"></Figure>
 
@@ -268,21 +268,21 @@ To create the user-defined function:
 
 1. Press the <EditorIcon name="Add"/> button on the top-right of the **Functions** panel in the **Component** view.
 2. When prompted for a function name, enter `apply_rotation` and press **Enter**.
-3. In the **Inspector** view, adjust the function properties by setting the following properties:
-   * Set the `Argument Count` to a value of `1`.
-   * Adjust the **new** argument's type as `Float` and the name as `delta`.
+3. In the **Inspector** view, click the **Add Inputs** button to add a new argument to the function.
+4. Set the **name** of the argument from **NewParam** to `delta`.
+5. Set the argument's type by clicking the **Any** button and selecting `Float`.
 
 The **Function Entry** node should now look like this in the graph:
 
 <Figure image="/img/step-by-step/apply-rotation-function-entry-node.png" caption="Apply rotation function"></Figure>
 
-You will have noticed that a new tab has been created at the top of the graph workspace called `apply_rotation()`.
-One of the benefits with Orchestrator is that all user-defined functions are organized into their own graph.
-This helps to declutter large graphs, and serves as a really neat way to organize your code.s
+You will have noticed that a new tab has been created at the top of the graph workspace called `apply_rotation`.
+One of the benefits with Orchestrator is that all user-defined functions are organized in their own graph.
+This helps to declutter large graphs, and serves as a really neat way to organize your code.
 
 Now, you may wonder how do we get the nodes we created in the **EventGraph** into this user-defined graph.
 Orchestrator supports bulk operations, so we're going to use **<EditorIcon name="ActionCut"/>Cut** and **<EditorIcon name="ActionPaste"/>Paste** to move that logic.
-So at the top of the graph workspace, click the **EventGraph** tab to go back to the main **Graph**.
+So at the top of the graph workspace, click the **EventGraph** tab to go back to the main graph.
 
 Left-click anywhere on the graph canvas and select the nodes that are specific to the rotation logic.
 The following shows the nodes you should be selecting in case you may have forgotten, they're highlighted with a **yellow** border:
@@ -296,35 +296,32 @@ You can also hold the `Ctrl` key and left click each node separately to select m
 Now to move these nodes to the user-defined function, we're going to first **Copy** them rather than use **Cut**:
 
 1. Press the `Ctrl+C` shortcut to copy the selected nodes into the selection buffer.
-2. In the **Component** view, double-click the `apply_rotation` function or click the `apply_rotation()` tab.
+2. In the **Component** view, double-click the `apply_rotation` function or click the `apply_rotation` tab.
 3. In the `apply_rotation` graph, press `Ctrl+V` to paste the selected nodes onto the graph.
-
-:::note
-The nodes may have been pasted near the center of the graph.
-You can click the **<EditorIcon name="GridMinimap"/>Toggle the graph minimap** at the top of the graph to quickly find them.
-Simply drag the selected nodes or the **Function Entry** node together.
-:::
 
 The next step here is to wire up the **Function Entry** node and the nodes that you just added.
 
 1. Connect the `delta` output pin to the `A` input pin of the multiplication node.
-2. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Call Set Rotation** node.
+2. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Set Rotation** node.
 
-The user-defined function, `apply_rotation()` should look like this:
+The user-defined function, `apply_rotation`, should look like this:
 
 <Figure image="/img/step-by-step/apply-rotation-function-finished.png" caption="The apply_rotation(delta) function"></Figure>
 
 The last step is to replace the logic in the **EventGraph** with our new function, `apply_rotation`.
 Click on the **EventGraph** in the **Graphs** section of the **Component** view or select the **EventGraph** tab.
 
-1. Right select all the currently selected nodes.
-2. Press the `Del` key to remove the nodes from the graph.
-3. Drag the `apply_function` from the **Component** view onto the graph.
+1. Right-click one of the currently selected nodes.
+   :::note
+   If the nodes are not still selected, please reselect them using the procedure above.
+   :::
+2. With the nodes selected, right-click one of the selected nodes and select `Delete` from the context-menu.
+3. Drag the `apply_function` from the **Component** view onto the graph. Select `Add Call Function` from the context-menu. 
 4. Connect the output execution pin from **Process Event** node to the input execution pin of **Call Apply Rotation** node.
 5. Connect the output `delta` pin from the **Process Event** node to the input `delta` pin of **Call Apply Rotation** node.
-6. Connect the output execution pin from **Call Apply Rotation** to the **Call Rotated** node.
+6. Connect the output execution pin from **Apply Rotation** to the **Rotated** node.
 7. Open the **All Actions** dialog, search for `Get Rotation` and add it to the graph.
-8. Lastly connect the output in from **Call Get Rotation** node to the `angle` pin of the **Call Rotated** node.
+8. Lastly connect the output in from **Get Rotation** node to the `angle` pin of the **Rotated** node.
 
 Your **EventGraph** should now look like this:
 
@@ -336,9 +333,9 @@ Now that we have moved the logic for rotation to a user-defined function, the ne
 
 1. Press the <EditorIcon name="Add"/> button on the top-right of the **Functions** panel in the **Component** view.
 2. When prompted for a function name, enter `apply_movement` and press **Enter**.
-3. In the **Inspector** view, adjust the function properties by setting the following properties:
-   * Set the `Argument Count` to a value of `1`.
-   * Adjust the **new** argument's type as `Float` and the name as `delta`.
+3. In the **Inspector** view, click the **Add Inputs** button to add a new argument to the function.
+4. Set the **name** of the argument from **NewParam** to `delta`.
+5. Set the argument's type by clicking the **Any** button and selecting `Float`.
 
 The **Function Entry** node should look like this in the graph:
 
@@ -347,14 +344,14 @@ The **Function Entry** node should look like this in the graph:
 Now again, we're going to select and **Copy** the nodes from the **EventGraph** into our new `apply_movement` user-defined function.
 
 1. Navigate back to the **EventGraph**.
-2. Select **ALL** nodes except the **Process Event** and **Call Apply Rotation** nodes.
+2. Select **ALL** nodes except the **Process Event** and **Apply Rotation** nodes.
 3. Press `Ctrl+C` to copy the nodes into the buffer.
 4. Navigate back to the **Apply Movement** graph.
 5. Press `Ctrl+V` to paste the nodes onto the graph.
 
 With the nodes pasted, you need to wire up the **Function Entry** node with the other nodes.
 
-1. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Call Rotated** node.
+1. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Rotated** node.
 2. Connect the `delta` output pin from the **Function Entry** node to the `B` input pin that isn't connected.<br/>
 This will be the `B` input pin on the **Multiplication** node between a `Vector2` and a `Float`.
 
@@ -364,10 +361,10 @@ The user-defined function graph should look like this:
 
 The last step is to replace the selected nodes in the **EventGraph** with the call to the new user-defined function that handles applying movement, `apply_movement`.
 
-1. Delete all nodes in the **EventGraph** except the **Process Event** and **Call Apply Rotation** nodes.
-2. Drag the `apply_movement` function from the **Component** view onto the graph.
-3. Connect the **Call Apply Function** output execution pin to the **Call Apply Movement** input execution pin.
-4. Connect the **Process Event** `delta` output pin to the **Call Apply Movement** `delta` input pin.
+1. Delete all nodes in the **EventGraph** except the **Process Event** and **Apply Rotation** nodes.
+2. Drag the `apply_movement` function from the **Component** view onto the graph. Select **Add Call Function** from the context-menu.
+3. Connect the **Apply Function** output execution pin to the **Apply Movement** input execution pin.
+4. Connect the **Process Event** `delta` output pin to the **Apply Movement** `delta` input pin.
 
 The new refactored **EventGraph** should now look like this:
 
@@ -377,13 +374,13 @@ By refactoring the logic from the **EventGraph** into two distinct **Function** 
 
 :::tip
 Any user-defined function can be focused by double-clicking the **Call Function** node.
-For example, double-clicking the **Call Apply Rotation** node will open the `apply_rotation` function graph, and focus the function's **Function Entry** node.
+For example, double-clicking the **Apply Rotation** node will open the `apply_rotation` function graph, and focus the function's **Function Entry** node.
 :::  
 
 ## Listening for player input {#listening-for-player-input}
 
-Building upon the steps from [Creating your first orchestration](#creating-your-first-orchestration) and [Reactor and use functions](#refactor-and-use-functions), let's look at another important feature of any game: giving control to the player.
-To add this, we need to modify our `sprite_2d.os` orchestration.
+Building upon the steps from [Creating your first orchestration](#creating-your-first-orchestration) and [Refactor and use functions](#refactor-and-use-functions), let's look at another important feature of any game: giving control to the player.
+To add this, we need to modify our `sprite_2d.torch` orchestration.
 
 <Figure image="/img/step-by-step/scripting_first_script_moving_with_input.webp" caption="Moving Godot with player input"></Figure>
 
@@ -426,12 +423,8 @@ func calculate_direction():
 Since this function will return an `Integer` value, we need to add a **Function Result** node to the graph.
 
 1. Click on the **Function Entry** node if it isn't already selected.
-2. In the **Inspector** view, enable the `Has Return Value` property.<br/>
-   If this is not enabled, you cannot add a **Function Result** node to the graph.
-3. In the **Inspector** view, set the `Return Type` to `Integer`.
-4. Now, right-click on the graph to open the **All Actions** dialog.
-5. Search for `Add Return`
-6. Select the `Add Return Node` and press the **Add** button or simply press **Enter**.
+2. In the **Inspector** view, click **Add Outputs**.
+3. Click on the button with `Any` and search for `Integer`, setting the type to integer.
 
 The `calculate_direction` graph should look like this:
 
@@ -484,7 +477,7 @@ For `direction`, leave its default value unchanged, as it will default to `0`.
 If you need a reminder of how to do that, see the [Add angular speed](#add-angular-speed) section.
 
 With the `direction` variable setup, drag the `direction` variable from the **Component** panel onto the graph **3** times.
-Each time, making sure to select that you want to create a **Get direction** node.
+Each time, making sure to select that you want to create a **Set direction** node.
 
 Now one of the cleanest ways to represent a sequence of operations, like checking two `if` (**Branch**) conditions followed by some logic that will run based on the prior stages is to use a **Sequence** node.
 In our case, we're going to create a **Sequence** node that will have **4** output execution pins, one to initialize our `direction` variable, two to handle the two `if` checks, and lastly one to handle the incrementing of the `rotation`.
@@ -492,7 +485,8 @@ In our case, we're going to create a **Sequence** node that will have **4** outp
 1. Right-click the graph and open the **All Actions** dialog.
 2. Search for `Sequence`.
 3. Select the `Sequence` option and press **Add** or simply press **Enter**.
-4. In the **Sequence** node, press the <EditorIcon name="ZoomMore"/> button so that there are **4** output execution pins.
+4. In the **Sequence** node, press the <EditorIcon name="ZoomMore"/> button so that there are **4** output execution pins.<br/>
+These pins will be labeled `Then 0`, `Then 1`, `Then 2`, and `Then 3`.
 5. Connect the `Then 0` output execution pin to one of the **Set direction** nodes.
 6. In that **Set direction** node, make sure that the `direction` value is `0` (the default).
 
@@ -511,33 +505,34 @@ Now, we need to repeat this process for the other `if` condition.
 3. Connect the **Branch** node's `True` output execution pin to the **Set direction** node that isn't connected.
 4. Set the `direction` input value to `1` on the **Set direction** node.
 
-With this, your graph should look similar to this:
+With this, the sequence part of the graph should look similar to this:
 
 <Figure image="/img/step-by-step/turning-input-left-right-step-1.png" caption="Initial setup for turning"></Figure>
 
 Now, you need to wire the **Function Entry** and **Function Result** nodes with this, returning the `direction`.
 
-1. Connect the **Function Entry** output execution pin to the input execution pin of the **Sequence** node.
+1. Connect the **Function Entry** output execution pin to the input execution pin of the **Sequence** node. This will break the existing connection between the **Function Entry** and **Function Return** nodes, and that's expected.
 2. Drag the `direction` variable from the **Component** view, and spawn a **Get direction** node.
 3. Connect the `Then 3` output pin from the **Sequence** node to the input execution pin of the **Function Result** node.
 4. Finally, connect the **Get direction** node's data output to the input `Return Value` pin of the **Function Result** node.
 
-The graph for `calculate_direction()` should look like this:
+The graph for `calculate_direction` should look like this:
 
 <Figure image="/img/step-by-step/calculate-direction-complete.png" caption="The calculate_direction() function"></Figure>
 
 #### Using the direction calculation
 
-The last step is to use the the `calculate_direction` function inside our `apply_rotation` function.
+The last step is to use the `calculate_direction` function inside our `apply_rotation` function.
 
-1. Navigate to the `apply_rotation` function.
-2. Drag the `calculate_direction` function onto the graph from the **Component** view.
+1. Navigate to the `apply_rotation` function, double-clicking it in the **Component** view.
+2. Drag the `calculate_direction` function onto the graph from the **Component** view.<br/>
+Be sure to select the **Add Call Function** option from the context-menu.
 3. Select the **Multiplication** node that multiplies two `Float` values and press `Ctrl+D` to duplicate.
-4. Connect the **Apply Rotation** entry node output pin to the input execution pin of the **Call Calculate Direction** node.
-5. Connect the `delta` output pin on **Apply Rotation** to the `B` input of the duplicated node.
-6. Connect the `Return value` output pin on the **Call Calculate Direction** to the `A` input of the duplicated node.
+4. Connect the **Apply Rotation** entry node output execution pin to the input execution pin of the **Calculate Direction** node.
+5. Connect the `delta` output pin on **Apply Rotation** to the `B` input of the duplicated **Multiply** node from step 3.
+6. Connect the `Return value` output pin on the **Calculate Direction** to the `A` input of the duplicated node.
 7. Connect the duplicated node's output pin to the unconnected **Multiplication** node `A` pin.
-8. Lastly connect the **Call Calculate Direction** output execution pin to the **Call Set Rotation** input execution pin.
+8. Lastly connect the **Calculate Direction** output execution pin to the **Set Rotation** input execution pin.
 
 The final graph should look like this:
 
@@ -582,11 +577,8 @@ In this function, we either want to return `Vector2.ZERO` if the player has not 
 The first step we need to is to add the **Function Return** node, returning a `Vector2` value.
 
 1. Select the **Function Entry** node.
-2. In the **Inspector** view, enable the `Has Return Value`.
-3. In the **Inspector** view, set the `Return Type` as `Vector2`.
-4. In the graph, right-click to open the **All Actions** dialog.
-5. Search for `Add Return`.
-6. Select the `Add Return Node` option and press the **Add** button or simply hit **Enter**.
+2. In the **Inspector** view, click the **Add Outputs** button to add the return node.
+3. In the **Inspector** view, set the return value's type to `Vector2` from `Any`.
 
 Now to simplify things, navigate back to the `apply_movement` graph and select these nodes.
 The nodes to select are highlighted with a **yellow** border:
@@ -621,9 +613,9 @@ With the `velocity` variable added, perform these steps:
 10. Select the **Input Action** node.
 10. In the **Inspector** view, change the `Action` property to be `ui_up`.
 11. Connect the **Input Action** output pin with the input `Condition` pin on the **Branch** node.
-12. Connect the `True` output pin from the **Branch** node to the input execution pin on the **Call Rotated** node.
+12. Connect the `True` output pin from the **Branch** node to the input execution pin on the **Rotated** node.
 13. Select the `velocity` variable in the **Component** panel and drag onto the graph, selecting **Set velocity**.
-14. Connect the output execution pin from **Call Rotated** to the input execution pin of **Set Velocity.
+14. Connect the output execution pin from **Rotated** to the input execution pin of **Set Velocity.
 15. Connect the output pin from the **Multiplication** (A*B) node to the input pin of **Set Velocity**.
 16. Drag the `velocity` variable from the **Component** panel and select **Get velocity**.
 17. Connect the `Then 2` output execution pin to the **Return Node** input execution pin.
@@ -640,10 +632,11 @@ Navigate back to the `apply_movement` function and perform these steps:
 
 1. Remove the node that you copied to the `calculate_velocity` function.<br/>In case you forgot, they're the ones shown here with a **yellow** border:
    <Figure image="/img/step-by-step/calculate-velocity-copy-nodes.png" caption="Nodes to delete"></Figure>
-2. Drag the `caculate_velocity` function from the **Component** view onto the graph.
-3. Connect the output execution pin from **Apply Movement** to the input pin on **Call Calculate Velocity** node.
-4. Connect the output execution pin from **Call Calculate Velocity** to the input execution pin on **Call Set Position** node.
-5. Finally, connect the `Return Value` output pin on **Call Calculate Velocity** node to the input `A` pin on the **Multiplication** node that's currently unconnected.
+2. Drag the `caculate_velocity` function from the **Component** view onto the graph.<br/>
+Again, select the **Add Call Function** option from the context-menu.
+3. Connect the output execution pin from **Apply Movement** to the input pin on **Calculate Velocity** node.
+4. Connect the output execution pin from **Calculate Velocity** to the input execution pin on **Set Position** node.
+5. Finally, connect the `Vector2` output pin on **Calculate Velocity** node to the input `A` pin on the **Multiplication** node that's currently unconnected.
 
 The new simplified `apply_movement` function should look like this:
 
@@ -667,6 +660,6 @@ You also inherit many functions, which we didn't use in this example.
 In an Orchestration, using variables is an excellent way to store and manage state.
 Additionally, user-defined functions are a great way to organize smaller pieces of code to reduce the complexity of large visual script graphs.
 
-And who would believe, in the end, all this was possible using three nodes in a graph:
+And who would have thought, visual scripting can be done without being spaghetti!
 
 <Figure image="/img/step-by-step/editor-finished.png" caption="Orchestrator, Visual Scripts aren't Spaghetti!!!!"></Figure>
