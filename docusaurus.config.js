@@ -53,7 +53,7 @@ const config = {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
           editUrl:
-            'https://github.com/Vahera/godot-orchestrator-docs/edit/main/',
+            'https://github.com/CraterCrash/godot-orchestrator-docs/edit/main/',
         },
         blog: false,
         theme: {
@@ -62,6 +62,8 @@ const config = {
       }),
     ],
   ],
+
+  /*themes: ['@docusaurus/theme-search-algolia'] */
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -101,7 +103,7 @@ const config = {
             dropdownActiveClassDisabled: true,
           },
           {
-            href: 'https://github.com/Vahera/godot-orchestrator',
+            href: 'https://github.com/CraterCrash/godot-orchestrator',
             label: 'GitHub',
             position: 'right',
           },
@@ -116,6 +118,13 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+      algolia: {
+        appId: 'QL8Q3PK57T',
+        apiKey: 'a3801da6e3cb3ba273caa3b1fe4b9a5d',
+        indexName: 'cratercrash',
+        contextualSearch: true,
+        insights: true
+      }
     }),
 };
 
