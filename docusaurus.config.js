@@ -86,7 +86,7 @@ const config = {
         hideOnScroll: false,
         logo: {
           alt: 'Crater Crash Studios',
-          src: 'https://cdn.cratercrash.space/utG8NiO3oN8sfXvI2ZZ0zg/92aa5265-59df-489c-daf0-4fab40a2d300/public',
+          src: 'https://cdn.cratercrash.space/cdn-cgi/image/width=225/utG8NiO3oN8sfXvI2ZZ0zg/c2930b5d-09da-42c3-1eda-a91038c50e00/public',
         },
         items: [
           {
