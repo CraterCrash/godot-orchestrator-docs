@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import url(https://fonts.bunny.net/css?family=inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
@@ -115,14 +117,14 @@ h4 {
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
 }
 
 .footer .footer-links {
   display: flex;
   column-gap: 15px;
-  font-family: 'Poppins';
-  color: #e6c643;
-  font-size: 13px;
+  color: #22808b;
   align-self: center;
   background-color: rgba(0, 0, 0, 0.65);
   font-weight: 700;
@@ -131,15 +133,13 @@ h4 {
 }
 
 .footer .footer-links > a {
-  font-family: 'Poppins';
-  color: #e6c643;
+  color: #f50162;
   text-decoration: none;
 }
 
 .footer .copyright {
-  font-family: 'Space Mono';
-  color: #e6c643;
-  font-size: 13px;
+  color: #22808b;
+  font-size: 15px;
   align-self: center;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -148,11 +148,10 @@ h4 {
 }
 
 .footer .copyright .symbol {
-  font-family: 'Poppins';
+
 }
 
 .footer .trademark {
-  font-family: 'Poppins';
   color: #cccccc;
   font-size: 12px;
   align-self: center;
@@ -163,7 +162,6 @@ h4 {
 }
 
 .footer .affiliation {
-  font-family: 'Poppins';
   color: #cccccc;
   font-size: 12px;
   align-self: center;
@@ -198,7 +196,7 @@ h4 {
 }
 
 .footer .socials > a > img {
-  width: 25px;
+  width: 30px;
   border-style: none;
   max-width: 100%;
 }
@@ -235,6 +233,7 @@ h4 {
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
+  font-family: Inter, sans-serif;
 }
 
 .vs-footer .footer-sublinks {

@@ -27,7 +27,7 @@ The following sections will cover some of these direct ways to contribute.
 - **Donate**.<br/>
 Orchestrator is a plug-in that is defined completely free of charge, and in the spare time of willing contributors.
 Donations help cover certain operating costs for hosting our websites, content, and more.
-If you want to donate to the project, check <ExternalLink href="https://cratercrash.com/orchestrator">our website</ExternalLink> for details.
+If you want to donate to the project, check <ExternalLink href="https://orchestrator.cratercrash.space">our website</ExternalLink> for details.
 
 ## Contributing code
 
@@ -63,13 +63,13 @@ It's also helpful to be on the lookout for bugs in stable releases.
 
 ### Filing an issue on GitHub
 
-Orchestrator uses <ExternalLink href="https://github.com/Vahera/godot-orchestrator/issues">GitHub's issue tracker</ExternalLink> for bug reports.
+Orchestrator uses <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator/issues">GitHub's issue tracker</ExternalLink> for bug reports.
 When you start filing a bug report, you'll be given a form to fill out.
 Please try and follow it so that all issues are consistent and provide the necessary information.
 
 ## Contributing to the documentation
 
-The documentation is maintained in the <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">Orchestrator docs</ExternalLink> repository.
+The documentation is maintained in the <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-docs">Orchestrator docs</ExternalLink> repository.
 This repository maintains not only the raw markdown files used for documentation, but also all translations used for various languages.
 
 Should you find outdated information in the documentation or parts that could be improved, contributions are welcomed.

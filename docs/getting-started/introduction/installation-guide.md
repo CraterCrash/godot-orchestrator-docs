@@ -7,7 +7,7 @@ sidebar_position: 3
 There two ways to install the plug-in:
 
 * Using the Godot Asset Library <EditorIcon name="AssetLib"/> in the Godot Editor.
-* Downloading the plug-in from our <ExternalLink href="https://github.com/Vahera/godot-orchestrator/releases">GitHub repository</ExternalLink>.
+* Downloading the plug-in from our <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator/releases">GitHub repository</ExternalLink>.
 
 In this section, we'll cover how to use both.
 
@@ -50,10 +50,10 @@ Restarting the Godot Editor one final time fixes the issue.
 
 ## Download from GitHub
 
-If you are interested in pre-release builds or are having trouble installing the plug-in using the Godot Asset Library, you can also download the plug-in binaries directly from our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub Repository</ExternalLink>.
+If you are interested in pre-release builds or are having trouble installing the plug-in using the Godot Asset Library, you can also download the plug-in binaries directly from our <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator">GitHub Repository</ExternalLink>.
 To install from GitHub, simply follow these steps:
 
-1. Locate the latest release on the repository's <ExternalLink href="https://github.com/Vahera/godot-orchestrator/releases">Releases</ExternalLink> page.
+1. Locate the latest release on the repository's <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator/releases">Releases</ExternalLink> page.
    :::note
    While the repository page will show the latest **stable** release, if you are interested in pre-release builds, you will need to specifically look at the **Releases** page as pre-release builds are not listed on the main GitHub repository page.
    :::

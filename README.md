@@ -1,6 +1,6 @@
 # Godot Orchestrator Documentation
 
-This repository contains all the source files for the [Godot Orchestrator plug-in's](httsp://gihub.com/Vahera/godot-orchestrator) documentation, using Docusaurus.
+This repository contains all the source files for the [Godot Orchestrator plug-in's](httsp://gihub.com/CraterCrash/godot-orchestrator) documentation, using Docusaurus.
 
 ## 🎨 Themes
 
@@ -14,7 +14,7 @@ The documentation is based on the Docusaurus classic theme with a number of cust
 
 All contributors are welcome to help on the Orchestrator documentation.
 
-To get started, read the [Contributing section](https://docs.cratercrash.com/orchestrator/contributing/ways-to-contribute) of the online documentation.
+To get started, read the [Contributing section](https://docs.cratercrash.space/orchestrator/contributing/ways-to-contribute) of the online documentation.
 There you will find all the information needed to add, improve, and update this documentation.
 
 ## 📝 License
@@ -24,7 +24,7 @@ See the [LICENSE](/LICENSE) for more details.
 
 ## 👏 Contributors
 
-<a href="https://github.com/Vahera/godot-orchestrator-docs/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=vahera/godot-orchestrator-docs" />
+<a href="https://github.com/CraterCrash/godot-orchestrator-docs/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=CraterCrash/godot-orchestrator-docs" />
 </a>
 

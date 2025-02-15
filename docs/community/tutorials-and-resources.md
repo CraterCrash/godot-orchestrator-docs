@@ -3,12 +3,12 @@
 
 This page maintains a list of various tutorials and resources created by Crater Crash Studios and community contributors.
 
-If you believe something is missing here, submit a <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">Pull Request</ExternalLink>.
+If you believe something is missing here, submit a <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-docs">Pull Request</ExternalLink>.
 
 ## Tutorials
 
-* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-2d">Godot Documentation 2D Tutorial with Orchestrator</ExternalLink>
-* <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples/tree/main/godot-tutorial-3d">Godot Documentation 3D Tutorial with Orchestrator</ExternalLink>
+* <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-examples/tree/main/godot-tutorial-2d">Godot Documentation 2D Tutorial with Orchestrator</ExternalLink>
+* <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-examples/tree/main/godot-tutorial-3d">Godot Documentation 3D Tutorial with Orchestrator</ExternalLink>
 * [Step-By-Step Example Guide](../getting-started/step-by-step)
 
 ## Showcase Videos
