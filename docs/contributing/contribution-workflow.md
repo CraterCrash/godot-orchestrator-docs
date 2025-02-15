@@ -18,10 +18,10 @@ But first, let's have a quick look at the Orchestrator Git repository.
 
 ### Git source repository
 
-The <ExternalLink href="https://github.com/Vahera/godot-orchestrator">repository on GitHub</ExternalLink> is a <ExternalLink href="https://git-scm.com/">Git</ExternalLink> code repository together with an embedded issue tracker and PR system.
+The <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator">repository on GitHub</ExternalLink> is a <ExternalLink href="https://git-scm.com/">Git</ExternalLink> code repository together with an embedded issue tracker and PR system.
 
 :::info
-If you are contributing to the documentation, its repository can be found <ExternalLink href="https://github.com/Vahera/godot-orchestrator-docs">here</ExternalLink>.
+If you are contributing to the documentation, its repository can be found <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-docs">here</ExternalLink>.
 :::
 
 The branches on the Git repository are organized as follows:
@@ -53,7 +53,7 @@ After Git has cloned the repository, you will find a new directory called `godot
 Next, change directories into the `godot-orchestrator` directory and execute the following commands:
 
 ```bash
-git remote add upstream https://github.com/Vahera/godot-orchestrator.git
+git remote add upstream https://github.com/CraterCrash/godot-orchestrator.git
 git fetch upstream
 ```
 

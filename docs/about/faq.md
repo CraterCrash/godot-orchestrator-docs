@@ -16,10 +16,10 @@ The Orchestrator logo and marketing images, including this website, are Copyrigh
 Yes, we are committed to providing support for our plugin, simply leave your questions on our discord.
 
 * **Where can I find the source code for Orchestrator?**<br/>
-You can find the source code on our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub repository</ExternalLink>.
+You can find the source code on our <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator">GitHub repository</ExternalLink>.
 
 * **I have a suggestion or idea, how do I provide this to you?**<br/>
-Feel free to leave it in our discord in the `#suggestions` channel, or our <ExternalLink href="https://github.com/Vahera/godot-orchestrator">GitHub repository</ExternalLink>.
+Feel free to leave it in our discord in the `#suggestions` channel, or our <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator">GitHub repository</ExternalLink>.
 
 * **Are you affiliated with Godot or the Godot Engine?**<br/>
   No, Crater Crash Studios is not affiliated with Godot or the Godot Engine.

@@ -35,7 +35,7 @@ This script is designed to rotate an object at constant speed each frame tick:
 
 <Figure image="/img/common/example-orchestration.png" caption="An example orchestration"></Figure>
 
-You can find many more examples in our <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples">GitHub examples repository</ExternalLink>.
+You can find many more examples in our <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-examples">GitHub examples repository</ExternalLink>.
 
 ## How to install the plug-in?
 

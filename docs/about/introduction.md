@@ -50,7 +50,7 @@ It refers to various community outlets and discords, and contains a list of reco
 * The **Script Node Reference** documents each Orchestrator visual script node type, how you can use them, their purpose, and how to configure them.
 This is where you should check if you don't understand a specific node or are unsure how to locate a specific node or feature.
 
-In addition to this documentation, you may also want to take a look at the various <ExternalLink href="https://github.com/Vahera/godot-orchestrator-examples">Orchestrator example projects</ExternalLink>.
+In addition to this documentation, you may also want to take a look at the various <ExternalLink href="https://github.com/CraterCrash/godot-orchestrator-examples">Orchestrator example projects</ExternalLink>.
 
 ## About this documentation
 
