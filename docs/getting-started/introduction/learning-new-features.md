@@ -34,7 +34,7 @@ Even when using visual tools, having this basic knowledge can easily improve you
 ## Learn with the community
 
 Orchestrator has a growing community of users.
-If you are stuck on a program or need help to understand how to achieve something, you can ask other users for help in our <ExternalLink href="https://discord.gg/J3UWtzWSkT">Discord</ExternalLink>.
+If you are stuck on a program or need help to understand how to achieve something, you can ask other users for help in our <ExternalLink href="https://discord.gg/wYQpvuYDhT">Discord</ExternalLink>.
 
 The best place to ask questions and find already answered ones is on our official discord.
 
