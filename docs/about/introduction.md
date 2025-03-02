@@ -57,7 +57,7 @@ In addition to this documentation, you may also want to take a look at the vario
 The Orchestrator community continuously writes, corrects, edits, and improves this documentation.
 We are always looking for more help.
 You can also contribute by opening GitHub issues or translating the documentation into your own language.
-If you are interested in helping, see [Ways to contribute](../contributing/ways-to-contribute) and [Writing documentation](../contributing/writing-documentation), or get in touch with the team on <ExternalLink href="https://discord.gg/J3UWtzWSkT">Discord</ExternalLink>.
+If you are interested in helping, see [Ways to contribute](../contributing/ways-to-contribute) and [Writing documentation](../contributing/writing-documentation), or get in touch with the team on <ExternalLink href="https://discord.gg/wYQpvuYDhT">Discord</ExternalLink>.
 
 All documentation content is licensed under the permissive Creative Commons Attribution 3.0 (<ExternalLink href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</ExternalLink>) license, with attribution to *"Crater Crash Studios, LLC and the community"* unless otherwise noted.
 
