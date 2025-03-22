@@ -240,7 +240,7 @@ With the nodes, we connect them as shown here:
 
 Run the scene to see the Godot head run in circles.
 
-<Figure image="/img/step-by-step/scripting_first_script_rotating_godot (1).webp" caption="Godot runs in circles!"></Figure>
+<Figure image="/img/step-by-step/scripting_first_script_rotating_godot.webp" caption="Godot runs in circles!"></Figure>
 
 :::note
 Moving nodes like this does not take into account collisions with other objects.
