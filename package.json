@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@babel/helpers": "^7.26.10",
+    "@babel/helpers": "^7.27.0",
     "@babel/runtime": "^7.26.10",
     "@docusaurus/core": "^3.6.1",
     "@docusaurus/plugin-content-docs": "^3.5.2",
