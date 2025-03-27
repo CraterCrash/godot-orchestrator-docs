@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "^3.7.0",
     "@docusaurus/theme-search-algolia": "^3.5.2",
     "@mdx-js/react": "^3.1.0",
-    "body-parser": "^1.20.3",
+    "body-parser": "^2.2.0",
     "clsx": "^2.1.1",
     "express": "^4.21.2",
     "nanoid": "^5.1.5",
