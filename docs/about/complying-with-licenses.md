@@ -42,7 +42,7 @@ For derived works that include Orchestrator, but do not modify or change its sou
 ```
 
 :::danger[Critical]
-For works that not only include Orchestrator, but includes a modified version of the plug-in, be sure you company with the full <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink> requirements.
+For works that not only include Orchestrator, but includes a modified version of the plug-in, be sure you comply with the full <ExternalLink href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</ExternalLink> requirements.
 These requirements not only require the inclusion of the above text, but all source files of the original work must retain the original copyright and license preamble.
 Additionally, any changes made to the source must be recorded in the headers of the source files.
 While changes are not required to be submitted back to the original project, they're welcomed!
