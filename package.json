@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/core": "^3.9.0",
     "@docusaurus/plugin-content-docs": "^3.5.2",
     "@docusaurus/preset-classic": "^3.8.1",
     "@docusaurus/theme-search-algolia": "^3.5.2",
