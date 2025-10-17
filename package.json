@@ -17,7 +17,7 @@
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/plugin-content-docs": "^3.5.2",
     "@docusaurus/preset-classic": "^3.9.1",
-    "@docusaurus/theme-search-algolia": "^3.5.2",
+    "@docusaurus/theme-search-algolia": "^3.9.2",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.1.1",
