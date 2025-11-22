@@ -10,7 +10,7 @@ jobs:
     name: Build documentation
     steps:
       - name: Checkout project
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Build
         env:
