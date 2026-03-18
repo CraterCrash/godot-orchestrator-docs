@@ -8,7 +8,7 @@ Orchestrator is a community-driven, free, and open-source project.
 All developers work on this plug-in *pro bono*, meaning they contribute their free time and skills for the love of making tools for others.
 
 This means that for Orchestrator to thrive, it needs contributors to help improve the plug-in.
-There are multiple ways to contribute to a project, making it possible for everyone to bring something positive to the project, regardless of your skill set.s
+There are multiple ways to contribute to a project, making it possible for everyone to bring something positive to the project, regardless of your skill sets.
 
 - **Be part of the community**.<br/>
 The best way to contribute to Orchestrator, and to help it grow is to simply use the plug-in and promote it by word-of-mouth, in the credits or splash screen of your games, blog posts, tutorials, videos, demos, you name it.
@@ -43,7 +43,7 @@ On the other hand, it comes with a responsibility, as your changes to be generic
 
 * The whole community benefits from your work, consequentially other contributors will contribute code that benefits you.
 
-To aid in collaboration and overall quality, the core developers will enforce some rules for code contributions, for example regarding the style to use in the C++ code (indentations, brackets, etc) or the Git and PR workflow will.
+To aid in collaboration and overall quality, the core developers will enforce some rules for code contributions, for example regarding the style to use in the C++ code (indentations, brackets, etc) or the Git and PR workflow.
 
 All pull requests go through a review process before being accepted.
 Depending on the scope of the changes, it may take sometime for a maintainer to provide their review.
