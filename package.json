@@ -45,6 +45,7 @@
     "node": ">=18.0"
   },
   "overrides": {
-    "react-json-view-lite": "^2.2.0"
+    "react-json-view-lite": "^2.2.0",
+    "serialize-javascript": ">=7.0.4"
   }
 }
