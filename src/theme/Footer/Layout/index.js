@@ -16,7 +16,7 @@ export default function FooterLayout({style, links, logo, copyright}) {
                   <a href="https://cratercrash.space/legal/disclaimer/">Disclaimer</a>|
                   <a href="https://cratercrash.space/legal/">Legal</a>
               </div>
-              <div className="copyright">Copyright <span className="symbol">&copy;</span> 2025 Crater Crash Studios, LLC. All Rights Reserved.</div>
+              <div className="copyright">Copyright <span className="symbol">&copy;</span> 2026 Crater Crash Studios, LLC. All Rights Reserved.</div>
               <div className="socials">
                   <a href="https://bsky.app/profile/cratercrash.space"><img src="https://gravity.cratercrash.space/227-fsn/i/505as.png" alt="A pink and purple polka-dotted circular icon featuring a stylized butterfly within a rounded square, representing the BlueSky logo, set against a transparent background."/></a>
                   <a href="https://youtube.com/@CraterCrashStudios"><img src="https://gravity.cratercrash.space/227-fsn/i/504as.png" alt="A pink and purple polka-dotted circular icon featuring a rounded rectangle with a play button in the center, representing the YouTube logo, set against a transparent background."/></a>
