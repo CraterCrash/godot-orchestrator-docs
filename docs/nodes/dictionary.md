@@ -2,14 +2,14 @@
 toc_max_heading_level: 4
 ---
 
-# Dictionary
+# Dictionaries
 
 One of Godot's built-in types is a `Dictionary`, which is responsible for storing key-value pairs.
 Dictionaries are associative containers that preserve insertion order. 
 In other languages, these are often referred to a hash map or an associative array.
 
 The Orchestrator documentation does not get into the specifics of what a `Dictionary` is or is used for at a fundamental level.
-If you need more details on what a `Dictionary` is or what you may need or want to use such a type, please see the [Godot documentation](https://docs.godotengine.org/en/stable/classes/class_dictionary.html).
+If you need more details on what a `Dictionary` is or why you may need or want to use such a type, please see the [Godot documentation](https://docs.godotengine.org/en/stable/classes/class_dictionary.html).
 
 ## Overview 
 
@@ -42,6 +42,10 @@ As shown below, this is what the node will look like after pressing the **Add Pi
 
 The <EditorIcon name="Variant"/> input pins are wildcards, and will accept any type of connection from any other pin type.
 
+:::tip
+Creating a **Typed** <EditorIcon name="Dictionary"/> dictionary is only supported in variable declarations.
+:::
+
 ### Node properties {#node-properties-create}
 
 The following describes the input and output pins for the **Make Dictionary** node.
@@ -63,7 +67,8 @@ In languages like **GDScript** or **C#**, the designer uses subscript operators 
 These operators use the key to effectively insert or displace any existing entry with that key in an already existing dictionary.
 Here's a trivial example:
 
-```python
+```gdscript showLineNumbers
+var the_dict : Dictionary
 the_dict[the_key] = the_value
 ```
 

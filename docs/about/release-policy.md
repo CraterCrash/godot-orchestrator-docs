@@ -47,18 +47,29 @@ Whenever a new major version is released, we make the previous stable branch a l
 In a given minor release series, only the latest patch releases receives support.
 If you experience an issue using an older patch release, please upgrade to the latest patch release of that series and test again before reporting issues on GitHub.
 
-| Version                 | Release Date             | Support Level                                                                                                                |
-|:------------------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| Orchestrator 2.1 (main) | June 2024<br/>(estimate) | *Development.* Receives new features, usability and performance improvements, as well as bug fixes, while under development. |
-| Orchestrator 2.0        | March 2024               | Receives fixes for bugs and security issues, as well as patches that enable platform support and other minor features.       |
-| Orchestrator 1.1        | December 2023            | No longer supported.                                                                                                         |
-| Orchestrator 1.0        | August 2023              | No longer supported (last update: 1.0.5).                                                                                    |
+<div className="table-nowrap-1 table-nowrap-2">
+| Version                 | Release Date       | Support Level                                                                                                                                                            |
+|:------------------------|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Orchestrator 2.6 (main) | Q4 2026 (estimate) | <EditorIcon name="Error" color="#b3b3b3" /> *Development.* Receives new features, usability and performance improvements, as well as bug fixes, while under development. |
+| Orchestrator 2.5        | July 2026          | <EditorIcon name="Error" color="#8eef97" /> Receives new features, usability and performance improvements, as well as bug fixes.                                         |
+| Orchestrator 2.4        | February 2026      | <EditorIcon name="Error" color="#ffdd65" /> Receives fixes for bugs and security issues, as well as patches that enable platform support.                                |
+| Orchestrator 2.3        | November 2025      | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 2.3.6).                                                                                    |
+| Orchestrator 2.2        | November 2025      | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 2.2.5).                                                                                    |
+| Orchestrator 2.1        | August 2024        | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 2.1.5).                                                                                    |
+| Orchestrator 2.0        | March 2024         | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 2.0.7).                                                                                    |
+| Orchestrator 1.1        | December 2023      | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 1.1.0).                                                                                    |
+| Orchestrator 1.0        | August 2023        | <EditorIcon name="Error" color="#ff5f5f" /> No longer supported (last update: 1.0.5).                                                                                    |
+</div>
 
+**Legend:** <EditorIcon name="Error" color="#8eef97" />Full support&nbsp;&nbsp;–&nbsp;<EditorIcon name="Error" color="#ffdd65" />Partial support&nbsp;&nbsp;–&nbsp;<EditorIcon name="Error" color="#ff5f5f" />No support (end of life)&nbsp;&nbsp;–&nbsp;<EditorIcon name="Error" color="#b3b3b3" />Development version
+
+:::note
 Pre-release Orchestrator plug-in versions aren't intended to be used in production and are provided for testing purposes only.
+:::
 
 ## Which version should I use for a new project?
 
-We recommend using Orchestrator 2.0 for all new projects, as the Orchestrator 1.x series has been discontinued.
+We recommend using Orchestrator 2.5 for all new projects.
 
 ## When is the next release out?
 

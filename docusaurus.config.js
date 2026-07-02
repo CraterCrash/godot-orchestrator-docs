@@ -122,6 +122,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['gdscript', 'python'],
       },
       algolia: {
         appId: 'QL8Q3PK57T',

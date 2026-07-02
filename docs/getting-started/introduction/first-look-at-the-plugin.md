@@ -11,6 +11,8 @@ We're going to look at the main workspace, the integration with Godot, and its i
 
 You access the main workspace of the plug-in by clicking on the tab labeled **Orchestrator** at the top of the Godot Editor.
 
+<Figure image="/img/common/godot-editor-orchestrator-tab.png" caption="Orchestrator main tab"></Figure>
+
 ### Graph view
 
 Initially, the main workspace is empty, only showing the file list.
@@ -60,20 +62,16 @@ To begin adding logic to your script, use the right-mouse button to open the **A
 This dialog is where you can search for specific nodes that you wish to add to the graph.
 To add a node, either select the choice and press the **Add** button or simply press **Enter**.
 
-Actions are grouped into the following high-level categories:
+Actions are grouped into the following high-level categories.
 
-* Functions that you can call on the object, denoted with the <EditorIcon name="MemberMethod"/> icon. 
-* Properties that you can access, denoted with the <EditorIcon name="MemberProperty"/> icon.
-* Signals you can connect and react to, denoted with the <EditorIcon name="MemberSignal"/> icon.
-* Overridable functions, denoted with the <EditorIcon name="MethodOverride" /> icon.
-* And Orchestrator script nodes, denoted with the <EditorIcon name="PluginScript" /> icon.
+:::info
+The <EditorIcon name="Favorites"/> icon can be used to add any number of actions as a favorite.
+If you use a specific action frequently, it's recommended that you click the <EditorIcon name="Favorites"/> button to make it a favorite.
+Favorites are shown in the top-left of the **All Actions** dialog.
+If you later wish to unfavorite an action, simply click the favorite item in the list and press the <EditorIcon name="Favorites"/> button.
 
-:::tip
-The <EditorIcon name="NonFavorite"/> icon identifies an action that is currently not a favorite.
-If you use a specific action frequently, it's recommended that you click the <EditorIcon name="NonFavorite"/> button to make it a favorite.
-Favorites are listed at the top of the **All Actions** dialog and will have a new <EditorIcon name="Favorites"/> icon.
-If you later wish to unfavorite an action, simply click the <EditorIcon name="Favorites"/> button.
-::: 
+In addition to favorites, your most recently chosen items are listed in the bottom-right of the dialog.
+:::
 
 :::tip
 Right-clicking the graph canvas opens the **All Actions** dialog using the script's base type as the context.
@@ -87,12 +85,13 @@ A visual script node is the building block of an orchestration, that you connect
 
 <Figure image="/img/common/example-orchestration.png" caption="Example of visual script nodes"></Figure>
 
-Script nodes consist of two types of pins, <EditorIcon name="VisualShaderPort"/> execution or control flow pins, and data pins which are identified by colored dots.
+Script nodes have two unique pin types:
 
-* **Inputs**<br/>
-The pins on the left side of a script node are called inputs, which allow you to pass data or control flow to the node.
-* **Outputs**<br/>
-The pins on the right side a script node are called outputs, which allow you to pass data or control to another node.
+* <EditorIcon name="VisualShaderPort"/> Execution or control flow pins that define the order the nodes execute.
+* <EditorIcon name="GuiGraphNodePort"/> Data pins that define input or output data values, colored by data types.
+
+The pins that are on the left-side of the node are called **Inputs**.
+The pins on the right-side of the node are called **Outputs**.
 
 Visual script nodes can be added to an orchestration using various methods, which include:
 
@@ -103,57 +102,22 @@ For details on all the script nodes available, please see the [Script Node Refer
 
 ## Customization and configuration
 
-Orchestrator also provides a number of customizations inside the `Project > Project Settings > Orchestrator` section.
+Orchestrator also provides a number of customizations.
+These can be accessed from the **Orchestrator** main tab and navigating to `File > Settings`.
 
-### Settings
+<Figure image="/img/getting-started/settings-dialog.png" caption="Orchestrator settings"></Figure>
 
-The `Settings` subsection provides access to several global Orchestrator settings.
+In the **General** tab, all plugin configuration settings can be adjusted, including behaviors.
 
-##### Base Settings
+Additionally in the `Interface > Theme` section, you can customize the titlebar colors and connection wire colors, as well as pick from pre-defined color themes.
 
-| Setting      | Description                                                                                |
-|:-------------|:-------------------------------------------------------------------------------------------|
-| Default Type | The default class type to be used when creating new orchestrations, defaults to `Node`.    |
-| Log Level    | Specifies the logging level when writing to `user://orchestrator.log`, defaults to `INFO`. |
-
-##### Runtime Settings
-
-| Setting             | Description                                                                                        |
-|:--------------------|:---------------------------------------------------------------------------------------------------|
-| Max Call Stack      | The maximum possible number of `Variant` (data) slots to allocate per stack, defaults to `1024`.   |
-| Max Loop Iterations | The maximum number of loop iterations, before a loop is auto-terminated, defaults to 1000000`.     |
-| Tickable            | Whether or not `Orchestration` scripts have their `_process` functions called, defaults to `true`. |
-
-### UI (User interface)
-
-The `UI` subsection provides access to many user-interface controls used by Orchestrator.
-
-##### Action Menu
-
-| Setting         | Description                                                                               |
-|:----------------|:------------------------------------------------------------------------------------------|
-| Center on Mouse | Whether the **All Actions** dialog opens centered at the mouse click, defaults to `true`. |
-
-##### Nodes
-
-| Setting                        | Description                                                                |
-|:-------------------------------|:---------------------------------------------------------------------------|
-| Show Type Icons                | Whether the data pins on nodes show the icon types, defaults to `true`.    |
-| Highlight Selected Connections | Highlights any nodes connected to any selected nodes, defaults to `false`. |
-
-##### Node colors
-
-In this section, you can customize the colors used for different node type title bars.
-
-##### Connection colors
-
-In this section, you can customize the data pin and wire connection colors for each data type.
-By default, Orchestrator maps the connection and data pin colors to match the Godot data type icon styles.
+In the **Shortcuts** tab, plugin shortcuts can be customized to your needs.
 
 ## Seamless editor integration
 
-One of the major goals of the Orchestrator team is to make sure that the user experience is seamless with the Godot Editor.
-We want users to feel as though the plug-in is a fundamental, core part of the Editor.
+One of the major goals the Orchestrator development team has is to make sure that user experience is seamless with the Godot Editor.
+Users should feel as though the plug-in is a fundamental, core part of the Editor, not some bolt-on you've added.
+
 To achieve this goal, not only do we do our best to follow the same design principals of the Editor, but we also provide seamless integration with the Editor.
 
 ### Drag-n-drop anywhere
@@ -171,11 +135,7 @@ The following drag-n-drop options exist:
 Bulk operations improves efficiency, and having access to such tools makes working with visual scripting less tedious.
 You can use the **Left Mouse Button** to click on the graph and begin to drag to select multiple script nodes.
 
-With multiple node selected, you can <EditorIcon name="ActionCut"/> cut (`Ctrl+X`), <EditorIcon name="ActionCopy"/> copy (`Ctrl+C`), and <EditorIcon name="ActionPaste"/> paste (`Ctrl+V`) as needed.
-
-:::tip
-You can also quickly <EditorIcon name="Duplicate"/> duplicate script nodes using `Ctrl+D`, which is a shortcut for copy-n-paste.
-:::
+With multiple node selected, you can <EditorIcon name="ActionCut"/> cut (`Ctrl+X`), <EditorIcon name="ActionCopy"/> copy (`Ctrl+C`), and <EditorIcon name="ActionPaste"/> paste (`Ctrl+V`), and <EditorIcon name="Duplicate"/> duplicate (`Ctrl+D`) as needed.
 
 ### Undo and redo
 
@@ -192,8 +152,9 @@ Orchestrator supports two file formats:
 * `.torch`, which is text-based
 * `.os` which is binary-based.
 
-The text-based format was introduced with Orchestrator 2.1, and will be the default moving forward.
+The text-based format was introduced with Orchestrator 2.1, and is the default.
 This format is more human-readable and is easier to work with version control systems, as text-based files allow for significantly easier diffing between changes.
+
 The binary-based format was originally introduced with Orchestrator 2.0, and is planned to be deprecated in a future release.
 
 ### Converting between formats
@@ -211,8 +172,8 @@ You will need to open each scene that uses the Orchestration and re-attach the n
 :::
 
 :::tip
-If you want to change the default format used by the plug-in, this can be done in the `Project > Project Settings` dialog.
-Simply open the dialog and navigate to the `Orchestrator > Settings` section where you will find the `Storage Type` configuration option.
+If you want to change the default format used by the plug-in, this can be done in the `File > Settings` dialog.
+Simply open the dialog and navigate to the `Editor > Settings` section where you will find the `Storage Format` configuration option.
 Here you can select between either **Text** or **Binary**, which controls the default format used when creating new Orchestrations.
 :::
 
@@ -222,8 +183,8 @@ In a Godot project, not every resource is exported in the same format that it's 
 This is because often times resources are saved using human-readable formats in the project workspace, but are converted to a binary format when the game is exported for performance reasons.
 Several built-in Godot resources are converted to binary when exporting games, such as `.tres` and `.tscn` files, which become `.res` and `.scn`, respectively.
 
-Orchestrator also uses this same technique when the project's Orchestration is storede in text-based format with the `.torch` extension.
-During the export process, the `.torch` file is converted to a compressed, binary format using the `.os` extension, which greatly reduces the file size and speeds up game load times.
+Orchestrator also uses this same technique when the project's Orchestration is stored in text-based format with the `.torch` extension.
+During the export process, the `.torch` file is converted to a compressed, binary format, which greatly reduces the file size and speeds up game load times.
 
 :::tip
 When exporting a game, any `.os` binary format that is used in the project is exported as-is without any transformation.

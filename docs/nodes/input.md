@@ -9,6 +9,9 @@ The **Input Action** node is designed to return whether the action is triggered 
 
 <Figure image="/img/nodes/input/input-action-node-ui-up.png">Input action node that checks for action <b>ui_up</b> being <b>pressed</b>.</Figure>
 
+The **Input Action** node can provide you one of the several trigger modes.
+See the [Input action trigger modes](#input-action-trigger-modes) for more details.
+
 ## Defining input mappings
 
 Input mappings are defined in Godot using the `Project > Project Settings > Input Map` dialog.

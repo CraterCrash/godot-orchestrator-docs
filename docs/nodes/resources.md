@@ -18,15 +18,17 @@ In this section, you will learn more about `Resource`s, and how to load and acce
 A resource path is a special string that begins with `res://` and follows the Godot semantics for providing a universal resource identifier (URI) to the specific resource file.
 Orchestrator provides a specialized node, **Get Resource Path**, that specifically makes working with resource paths (URIs) simple.
 
+<Figure image="/img/nodes/resources/resource-path-node.png">Get Resource Path Node</Figure>
+
 To create a **Get Resource Path** node:
 
 1. Locate the resource in the **FileSystem** view.
 2. Select the file and drag the file onto the graph.
 3. Upon releasing the mouse, select the **Get Path** option on the context-menu.
 
-## Resource path properties
+### Node properties
 
-The **Get Resource Path** properties can be modified in the **Inspector** view, after selecting the node.
+The **Get Resource Path** node's can be modified in the **Inspector** view, after selecting the node.
 
 | Property | Description                                                           |
 |:---------|:----------------------------------------------------------------------|
@@ -34,6 +36,7 @@ The **Get Resource Path** properties can be modified in the **Inspector** view, 
 
 :::info
 The **Get Resource Path** node does not load the resource from the **FileSystem**.
+
 Instead, this node simply returns the fully-qualified path to the file in the Godot project.
 This can be useful for passing the resource's path to another node that loads the resource, such as a scene or an image.
 :::
@@ -46,21 +49,27 @@ However, this approach loads the resource at the time the `Call Load` function i
 One way to avoid this problem is use a technique called *preloading*, which is where resources are loaded automatically when the owning scene is loaded by the engine.
 This guarantees that the rendering of the scene is more stable and less likely to have stutter, while the trade-off is that the loading of the scene may take slightly longer.
 
+<Figure image="/img/nodes/resources/preload-node.png">Preload Resource Node</Figure>
+
 To preload resources with Orchestrator, you need to add a **Preload Resource** node:
 
 1. Locate the resource in the **FileSystem** view.
 2. Select the file and drag the file onto the graph.
 3. Upon releasing the mouse, select the **Preload** option in the context-menu.
 
+If the preloaded resource needs to change, repeat the above steps for the new resource.
+
 :::info
 When a **Preload Resource** node exists in an `Orchestration`, Orchestrator will automatically *load* the resource when the node that owns the orchestration enters the scene tree.
 Multiple subsequent nodes can accept the *output* pin as an input without incurring any overhead since the resource is loaded once.
 :::
 
-## Preload resource properties
+:::warning
+There is discussion within the Godot community that `preload` may be deprecated.
+There is currently no exact timing or if this will happen, but if GDScript does consider this, Orchestrator will also follow.
 
-The **Preload Resource** properties can be modified in the **Inspector** view, after selecting the node.
+While `preload` is a nice feature in certain cases, it introduces a certain level of complexity with resource loading that needs to be managed, that often complicated other areas of a script's lifecycle.
+It's generally recommended that users prefer using the `ResourceLoader` with threaded requests.
 
-| Property | Description                               |
-|:---------|:------------------------------------------|
-| Resource | A reference to the resource to be loaded. |
+We plan to introduce several nodes in the future to simplify this so that users who rely on `preload` have alternatives without having to use the native `ResourceLoader` directly.
+:::

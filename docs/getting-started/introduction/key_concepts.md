@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Orchestrator is a Godot-plugin that is based on a set of key abstractions.
 
-An `Orchestration` is the main resource that you will be creating and managing using the Orchestrator plug-in.
+An `Orchestration` is the main resource that you will be creating and managing using the Orchestrator plug-in, common referred to as `.torch` files.
 It represents a Godot `Script` object that contains one or more graphs with any number of connected nodes.
 
 Orchestrations also support user-defined functions, variables, and signals, much like you would see in `GDScript` or `C#` script.
@@ -25,6 +25,8 @@ A scene can literally be anything, a character, a weapon, a menu in the user int
 Godot's scene system is designed to be flexible; providing the role of both prefabs (archetypes) and scenes/levels, terms often used in other engines.
 
 <Figure image="/img/getting-started/key_concepts_main_menu.webp" caption="Simple scene"></Figure>
+
+For more information about Scenes, see the [Godot documentation](https://docs.godotengine.org/en/stable/getting_started/step_by_step/nodes_and_scenes.html#scenes) for details.
 
 ### Nodes
 
@@ -47,10 +49,12 @@ This icon signifies that the node has a script attached.
 The visual scripts you create with Orchestrator, called `Orchestration`s, are scripts that can be attached to scene nodes.
 When they are attached, the <EditorIcon name="Script"/> is shown in the scene view next to the node.
 
+For more information about Nodes, see the [Godot documentation](https://docs.godotengine.org/en/stable/getting_started/step_by_step/nodes_and_scenes.html#nodes) for details.
+
 ### Graph workspace
 
 The **Graph** is the main workspace where you will spend the vast majority of your time creating orchestrations.
-It is the canvas where you will place nodes, connecting them to create complex behaviors.
+It is the canvas where you will place nodes, connect them together to create complex behaviors.
 
 <Figure image="/img/getting-started/graph-workspace.png" caption="Orchestrator graph workspace"></Figure>
 
@@ -94,10 +98,14 @@ If a signal has any connections, there will be child items listed under the sign
 For example, the above image shows that the function `_on_area_2d_body_entered()` will be called when the `body_entered` signal is emitted.
 This is an example of creating an `Area2D`, a 2D area trigger, and notifying some observer that an object has entered the trigger's area.
 
+For more information about signals, see the [Signals](../../nodes/signals) node reference.
+
 ### Variables
 
 A **Variable** represents a named value that can be assigned a value or its value read in the visual script.
 Variables are useful for passing data between different parts of the script, and for maintaining state that is managed by the `Orchestration`.
 
 To add a new variable, use the **Component** view and click the <EditorIcon name="Add"/> icon in the **Variables** panel header.
+
+For more information about variables, see the [Variables](../../nodes/variables) node reference.
 
