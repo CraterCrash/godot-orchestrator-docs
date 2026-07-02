@@ -9,11 +9,10 @@ export default function FooterLayout({style, links, logo, copyright}) {
           <div className="footer-separator"></div>
           <div className="footer-wrapper">
               <div className="footer-links">
-                  <a href="https://cratercrash.space/legal/webterms/">Terms</a>|
-                  <a href="https://cratercrash.space/legal/webprivacy/">Privacy</a>|
-                  <a href="https://cratercrash.space/legal/webcookies/">Cookie</a>|
-                  <a href="https://cratercrash.space/legal/imprint">Imprint</a>|
-                  <a href="https://cratercrash.space/legal/disclaimer/">Disclaimer</a>|
+                  <a href="https://cratercrash.space/legal/terms-and-conditions">Terms</a>|
+                  <a href="https://cratercrash.space/legal/privacy-policy">Privacy</a>|
+                  <a href="https://cratercrash.space/legal/cookie-policy">Cookie</a>|
+                  <a href="https://cratercrash.space/legal/disclaimer">Disclaimer</a>|
                   <a href="https://cratercrash.space/legal/">Legal</a>
               </div>
               <div className="copyright">Copyright <span className="symbol">&copy;</span> 2026 Crater Crash Studios, LLC. All Rights Reserved.</div>
