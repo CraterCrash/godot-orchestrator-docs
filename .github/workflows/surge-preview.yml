@@ -52,14 +52,13 @@ jobs:
 
       - name: The job failed
         if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v3.3.0
+        uses: marocchino/sticky-pull-request-comment@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
+          message: |
             😭 Deploy PR Preview failed.
             <img width="300" src="https://user-images.githubusercontent.com/507615/90250824-4e066700-de6f-11ea-8230-600ecc3d6a6b.png">
-            <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
           number: ${{ steps.pr.outputs.id }}
 
   failed:
@@ -77,12 +76,11 @@ jobs:
         run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
 
       - name: The job failed
-        uses: actions-cool/maintain-one-comment@v3.3.0
+        uses: marocchino/sticky-pull-request-comment@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
+          message: |
             😭 Deploy PR Preview failed.
             <img width="300" src="https://user-images.githubusercontent.com/507615/90250824-4e066700-de6f-11ea-8230-600ecc3d6a6b.png">
-            <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
           number: ${{ steps.pr.outputs.id }}
