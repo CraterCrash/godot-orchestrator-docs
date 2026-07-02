@@ -7,3 +7,16 @@
 .editorIcon {
 
 }
+
+.editorIconMasked {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}

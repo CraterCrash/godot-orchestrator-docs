@@ -11,6 +11,9 @@ These properties can be accessible internally to the `Orchestration` that contai
 
 Variables can be created using a variety of different types, including data types such as Boolean, Integer, or Float, but can also reference types for holding more complex values like Objects, Nodes, Resources, or other named types.
 Arrays, Dictionaries, and specialized Packed-Arrays can be created too.
+
+### Built-in types
+
 Each type is specifically color coded for easy identification:
 
 | Variable Type      |                        Color                        |                  Icon                   | Represents                                                     |
@@ -52,24 +55,33 @@ Each type is specifically color coded for easy identification:
 | PackedVector3Array | <ConnectionColor color="#d67ded"></ConnectionColor> | <EditorIcon name="PackedVector3Array"/> | Packed array of `Vector3` values.                              |
 | PackedColorArray   | <ConnectionColor color="#9eff70"></ConnectionColor> |  <EditorIcon name="PackedColorArray"/>  | Packed array of `Color` values.                                |
 
-:::info
-We are aware that variables cannot be assigned to all Godot engine values, such as enumerations.
-We are also aware that exporting of certain variables as *flags* and *enumerations* also is not available.
-There is currently an upcoming fix to introduce a revamped **Variable** UI to allow defining variables of any Godot type more easily.
+:::tip
+Connection colors can be adjusted in the Orchestrator tab, `File > Settings > Interface > Theme` section.
 :::
 
+### Arrays and dictionaries
+
+In the **Select Variable Type** dialog, the option for `Array` or `Dictionary` is intentionally omitted.
+This is because these container types are defined as part of the drop-down next to the variable type.
+
+| Icon                                                                   | Description                                                                                                               |
+|:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| <Figure image="/img/nodes/variables/ContainerNone.svg"></Figure>       | Specifies that the variable type is not an `Array` or `Dictionary` container type.                                        |
+| <Figure image="/img/nodes/variables/ContainerArray.svg"></Figure>      | Specifies that the variable type is the element type of a typed `Array`.                                                  |
+| <Figure image="/img/nodes/variables/ContainerDictionary.svg"></Figure> | Specifies that the variable type before the container drop-down is the `Dictionary` key, the type afterward is the value. |
+
 :::tip
-Connection colors can be adjusted in the `Project > Project Settings > Orchestrator > UI` section.
+When the `Array` element or the `Dictionary` key and value set to <EditorIcon name="Variant"/> Variant, the `Array` or `Dictionary` is untyped.
 :::
 
 ## Exported variables
 
-For a variable to be modified from outside the orchestration, it must be **exported**.
+For a variable to have instance-specific state managed by the scene, it must be **exported**.
 
 <Figure image="/img/nodes/variables/exported.png" caption="Exporting a variable"></Figure>
 
-Variables in the component panel are private by default, using the <EditorIcon name="GuiVisibilityHidden"/>.
-By clicking the eye icon or selecting the variable and toggling the **Exported** property in the **Inspector** view, the variable can be made accessible from outside the orchestration, using the icon <EditorIcon name="GuiVisibilityVisible"/>.
+Variables in the component panel are not exported by default, using the <EditorIcon name="GuiVisibilityHidden"/>.
+By clicking the eye icon or selecting the variable and toggling the **Exported** property in the **Inspector** view, the variable will be marked as exported using the icon <EditorIcon name="GuiVisibilityVisible"/>.
 
 Once a variable has been exported, if the orchestration is attached to any scene nodes, the value of the variable can be initialized for each specific scene node that the orchestration is attached separately.
 
@@ -79,26 +91,26 @@ This allows for creating orchestrations with unique behaviors and reusing that b
 
 ## Private variables
 
-By default, a variable is private, or *not exported*.
-Private variables are those that can be modified from within the owning orchestration graphs; however, are not accessible from external actors such as `C#`, `GDScript`, or other orchestrations.
-You can determine whether a variable is private if it has the <EditorIcon name="GuiVisibilityHidden"/> icon next to its name in the **Component** view.
+In Godot, there is no formal concept of **visibility**.
+This means that a variable is never really "private" so that it cannot be modified by another script.
 
-<Figures>
-   <Figure image="/img/nodes/variables/variable-component-view.png" caption="Non-exported variable"></Figure>
-   <Figure image="/img/nodes/variables/variable-component-view-exported.png" caption="Exported variable"></Figure>
-</Figures>
+There is a general rule that using `_` (underscore) prefixes identifies a variable that is considered private, but to the scripting subsystem, that will still be visible.
 
 ## Variable descriptions
 
-While Orchestrator allows you to define a variable description, these descriptions are only for informational purposes.
-At this time, these descriptions are not exposed in the tooltips for exported variables; however, this is planned for a future patch.
+A variable can have a unique description, that provides information about its purpose, intent, use, or whatever other details you need.
+The description is provided as part of the **Component** view tooltip and as part of the toolips on all **Get** or **Set** variable nodes in the script.
+
+Additionally, these descriptions are made available to the EditorHelp for the script file or class, depending on how the script is defined.
 
 ## Promoting to variable
 
-Variables can also be created automatically by using the **Promote to Variable** context-menu option.
+Variables can also be created automatically by using the **Promote to Variable** context-menu option for pins on graph nodes.
 Right-click any input or output data pin on an orchestration node and select **Promote to Variable**.
 
 <Figure image="/img/nodes/variables/promote-to-variable.png" caption="Promote pin to variable"></Figure>
+
+For input pins, this will also spawn a **Get** variable node, while for output pins this will spawn a **Set** variable node.
 
 ## Accessing variables 
 
@@ -144,14 +156,17 @@ Any **Get** or **Set** node already in any graph will automatically update when 
 You can set all the properties for a variable in the **Inspector** panel.
 Some variables may have more or less properties than others, depending on the variable's type.
 
-| Property      | Description                                                                                                                 |
-|:--------------|:----------------------------------------------------------------------------------------------------------------------------|
-| Name          | The name of the variable, can only be changed from the component panel.                                                     |
-| Category      | The logical group the variable belongs. Setting this to an empty string or `Default` implies the variable is uncategorized. |
-| Type          | Specifies the type the variable represents.                                                                                 |
-| Exported      | Toggles whether the variable is publically accessible outside the Orchestration when checked.                               |
-| Default Value | For many variable types, sets an initial, default value assigned to the variable when the orchestration is created.         |
-| Description   | Specifies a custom description that describes the variable, its purpose, and usage.                                         |
+<div className="table-nowrap-1">
+| Property                                   | Description                                                                                                                 |
+|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| <EditorIcon name="String"/> Name           | The name of the variable, can only be changed from the component panel.                                                     |
+| <EditorIcon name="String"/> Category       | The logical group the variable belongs. Setting this to an empty string or `Default` implies the variable is uncategorized. |
+| <EditorIcon name="bool"/> Constant         | Specifies whether the variable should be treated like a constant and be immutable.                                          |                             
+| <EditorIcon name="bool"/> Exported         | Toggles whether the variable's value can be managed from within the scene its attached.                                     |
+| <EditorIcon name="Variant"/> Variable Type | Specifies the variable type and container type if its an `Array` or `Dictionary`.                                           |
+| <EditorIcon name="Variant"/> Default Value | For many variable types, sets an initial, default value assigned to the variable when the orchestration is created.         |
+| <EditorIcon name="String"/> Description    | Specifies a custom description that describes the variable, its purpose, and usage.                                         |
+</div>
 
 ## Getting and setting variable values
 

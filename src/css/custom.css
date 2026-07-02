@@ -323,3 +323,20 @@ figure > img {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* Make Markdown tables span the full content width */
+.markdown table {
+  display: table;
+  width: 100%;
+}
+
+/* Prevent wrapping in a chosen column of tagged tables.
+   Wrap the table in <div className="table-nowrap-N"> to target column N. */
+.table-nowrap-1 td:nth-child(1),
+.table-nowrap-1 th:nth-child(1),
+.table-nowrap-2 td:nth-child(2),
+.table-nowrap-2 th:nth-child(2),
+.table-nowrap-3 td:nth-child(3),
+.table-nowrap-3 th:nth-child(3) {
+  white-space: nowrap;
+}

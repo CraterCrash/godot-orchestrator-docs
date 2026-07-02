@@ -62,5 +62,5 @@ Please ask before using lambdas in a pull request.
 
 ### `#pragma once` directives
 
-Please follow the existing style and use standard `#ifdef`-based include directives.
-Pull requests that use the `#pragma once` directive will not be merged until changed.
+The code now prefers the use of `#pragma once` directives over the C-style `#ifdef`-based include directives.
+Pull requests that do not use `#pragma once` directives will not be merged until changed.

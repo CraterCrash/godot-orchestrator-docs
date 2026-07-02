@@ -5,6 +5,7 @@ All Orchestrator visual script nodes are based on the `ScriptNode` class.
 The following hierarchy represents all the node types available that can be added to an `Orchestration` script.
 
 * Script Node
+  * [Arrays](arrays) 
   * [Autoloads](autoloads)
   * [Comments](comments)
   * [Constants](constants)
@@ -42,6 +43,7 @@ The following hierarchy represents all the node types available that can be adde
     * [Get Resource Path](resources#resource-paths)
     * [Preload Resource](resources#preload-resources)
   * [Scene](scene)
+    * [Get Self](scene#self)
     * [Get Scene Node](scene#scene-nodes)
     * [Get Scene Tree](scene#scene-tree)
     * [Instantiate Scene](scene#instantiating-scenes)
@@ -49,6 +51,10 @@ The following hierarchy represents all the node types available that can be adde
     * [Await Signal](signals#await-a-signal)
     * [Emit Signal](signals#emit-a-signal)
   * [Singletons](singletons)
+  * [Utilities](utilities)
+    * [Construct/Make](utilities#construct-make)
+    * [Destruct/Break](utilities#destruct-break)
+    * [Print String](utilities#print-string) 
   * [Variables](variables)
     * [Get Variable](variables#get-nodes)
     * [Set Variable](variables#set-nodes)

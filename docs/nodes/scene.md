@@ -2,10 +2,19 @@
 toc_max_heading_level: 4
 ---
 
-# Scene
+# Scenes
 
 Sometimes an `Orchestration` simply modifies the behavior of the node that it's attached; however, there are other situations where one node needs to coordinate, manipulate, or interact with other nodes in your scene.
 Orchestrator provides several useful ways to interact with other scene nodes and the Godot `SceneTree`.
+
+## Get self
+
+While many nodes automatically default to **Self** for targets, this isn't universally the case.
+The **Get Self** node provides a way to effectively return a `self` reference, e.g.
+
+<Figure image="/img/nodes/scene/get-self-node.png">Get self node</Figure>
+
+In other languages like C/C++ or Java, this is the equivalent to returning `this`.
 
 ## Scene nodes
 
@@ -16,12 +25,12 @@ Additionally, these nodes have specializations for things such as characters, me
 When you attach an `Orchestration` to a scene node, the `Orchestration` will inherit the behavior of the base type you assigned when you created the script.
 Most users assign the script's base type to match the node type you attach the orchestration to, a common parent type such as `Node3D`, `Node2D`, or `Node`.
 
-## Accessing scene node behaviors
+### Accessing scene node behaviors
 
-Accessing a scene node's behavior (functions and properties) occurs by searching for the function or property in the **All Actions** dialog.
+Accessing a scene node's behavior (functions and properties) happens by searching for the function or property in the **All Actions** dialog.
 The main question is whether you want to access a function or property for the node that the `Orchestration` is attached, or are you wanting to access a function or property on another node in the scene.
 
-### Behaviors on orchestration's owner
+#### Behaviors on script owner
 
 By default, the **All Actions** dialog presents a list of behaviors that are relevant to the `Orchestration` owner when you right-click on the graph.
 For example, if the base type selected is a `Node3D` and you would like to call the `rotate_y` function:
@@ -35,22 +44,31 @@ When you drag the mouse from either an input or output pin, the **All Actions** 
 This context-specific list often will be a subset or not even related to the base type of the `Orchestration`, so make sure to right-click on the graph to access the **All Actions** dialog if you're interested in the attached node's methods or properties.
 :::
 
-### Behaviors on other nodes
+#### Behaviors on other nodes
 
 To access behavior on other scene nodes, this requires a reference to that specific scene node.
+
+<Figure image="/img/nodes/scene/get-scene-node-node.png">Get a scene node</Figure>
+
 A reference to that node can be obtained simply by:
 
 1. Selecting the desired scene node in the **Scene** view.
 2. Drag the scene node onto the graph.
 3. Releasing the mouse button will spawn a **Get Scene Node** node.
 
-:::info
+:::warning
 A **Get Scene Node** uses a Godot `NodePath` to refer to the scene node.
 If you rearrange your scene, the path to the node may change, and the **Get Scene Node** will need to be updated to reflect the new path.
 In order to change the path, select the **Get Scene Node** and then modify the `Node Path` property in the **Inspector** view.
 :::
 
-## Scene node properties
+:::note
+We are aware that Godot introduced unique node ids in a recent Godot update.
+However, these unique node ids are not exposed to the scripting subsystem, and cannot be used by Orchestrator at this time.
+Once they're available, we intend to transition to using those to make node path updates seamless.
+:::
+
+### Node properties
 
 The **Get Scene Node** node is designed to use a `NodePath` to find the node in the current scene and return a reference to the physical node object in the scene.
 To modify the **Get Scene Node** properties, use the **Inspector** view.
@@ -82,7 +100,15 @@ If you chose a type that inherits from `Control`, `Node2D`, or `Node3D`, then yo
 1. Right-click the graph, opening the **All Actions** dialog.
 2. Search for `Call Get Tree`, and select the `Call Get Tree` option by either pressing **Add** or hitting **Enter**.
 
+:::tip
+Do not use attempt to use `get_tree()` during methods like `_init` or other early Godot callbacks.
+This is because until the node has entered the tree fully, `get_tree()` returns a null value, and will cause the script to error.
+For this reason, it's generally best to use the **Get Scene Tree** node.
+:::
+
 ### Using the get scene tree node
+
+<Figure image="/img/nodes/scene/get-scene-tree-node.png">Get Scene Tree Node</Figure>
 
 The **Get Scene Tree** node is another way to access the `SceneTree` from within an `Orchestration`.
 This method is preferred and will work regardless of the base type chosen.
@@ -90,7 +116,7 @@ This method is preferred and will work regardless of the base type chosen.
 1. Right-click the graph, opening the **All Actions** dialog.
 2. Search for `Get Scene Tree` and select the `Call Get Scene Tree` option, either by pressing **Add** or hitting **Enter**.
 
-## Scene Tree properties
+### Node properties
 
 There are no properties that can be modified in the **Inspector** view.
 The **Get Scene Tree** node simply returns a reference to the `SceneTree` godot object as an *output* pin.
@@ -120,7 +146,7 @@ In both cases:
 
 Once the scene file is selected, the `Scene` property on the node and in the **Inspector** view will include the `res://` based path to the scene.
 
-## Instantiate scene properties
+### Node properties
 
 To set the properties for the **Instantiate Scene** node, either modify the `Scene` property directly on the node or select the node and use the **Inspector** view to modify the `Scene` property.
 

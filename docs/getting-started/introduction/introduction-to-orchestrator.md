@@ -57,7 +57,7 @@ The Godot engine provides two core programming languages out of the box, `GDScri
 These two languages provide seamless, powerful scripting opportunities in the engine; however, both of these are entirely text-driven.
 
 Orchestrator provides a new type of programming language to Godot, to create new script resource types called `Orchestration`s.
-An orchestration, offered called an `OrchestratorScript` or `OScript` for short, is a visual-scripting language where you connect visual blocks together to build games.
+An orchestration, also called an `OrchestratorScript` or `OScript` for short, is a visual-scripting language where you connect visual blocks together to build games.
 
 Orchestrator's code base is written in C++, the most popular language used in the gaming industry.
 Developers use C++ because it's highly optimized and efficient, which is critical in high-performance games.

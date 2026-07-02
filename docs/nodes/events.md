@@ -114,6 +114,13 @@ If the Orchestration's owning node is removed from the scene and later added, th
 If the Orchestration's **Ready Event** should be called again when added back to the scene, a prior call to the Orchestration's `request_ready()` function must be made.
 :::
 
+## Shortcut input event
+
+<Figure image="/img/nodes/events/shortcut-input-event-node.png" caption="Shortcut input event callback node"></Figure>
+
+The **Shortcut Input Event** is called as part of the Input event flow, giving you a chance to handle the input as a **Shortcut**.
+Please see the [Godot documentation](https://docs.godotengine.org/en/stable/tutorials/inputs/inputevent.html#how-does-it-work) on how Input works and at what stages events fire.
+
 ## Unhandled input event
 
 <Figure image="/img/nodes/events/unhandled-input-event-node.png" caption="Unhandled input event callback node"></Figure>

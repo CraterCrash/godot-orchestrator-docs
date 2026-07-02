@@ -68,7 +68,7 @@ To create and attach a new `Orchestration` to our node, right-click on the `Spri
 
 The **Attach Node Script** dialog will appear.
 This dialog allows you to select the script's language, the file path, and other options.
-Make sure the language is set to `Orchestrator`, leaving all the other options as their defaults.
+Make sure the language is set to `OScript`, leaving all the other options as their defaults.
 
 Click the **Create** button to create the script.
 
@@ -264,28 +264,8 @@ Thankfully, Orchestrator provides multiple tools to help with this, and the firs
 The first task we're going to focus on is moving the **Apply Rotation** logic to a user-defined function called `apply_rotation`.
 This user-defined function will accept the `delta` time in seconds. 
 
-To create the user-defined function:
-
-1. Press the <EditorIcon name="Add"/> button on the top-right of the **Functions** panel in the **Component** view.
-2. When prompted for a function name, enter `apply_rotation` and press **Enter**.
-3. In the **Inspector** view, click the **Add Inputs** button to add a new argument to the function.
-4. Set the **name** of the argument from **NewParam** to `delta`.
-5. Set the argument's type by clicking the **Any** button and selecting `Float`.
-
-The **Function Entry** node should now look like this in the graph:
-
-<Figure image="/img/step-by-step/apply-rotation-function-entry-node.png" caption="Apply rotation function"></Figure>
-
-You will have noticed that a new tab has been created at the top of the graph workspace called `apply_rotation`.
-One of the benefits with Orchestrator is that all user-defined functions are organized in their own graph.
-This helps to declutter large graphs, and serves as a really neat way to organize your code.
-
-Now, you may wonder how do we get the nodes we created in the **EventGraph** into this user-defined graph.
-Orchestrator supports bulk operations, so we're going to use **<EditorIcon name="ActionCut"/>Cut** and **<EditorIcon name="ActionPaste"/>Paste** to move that logic.
-So at the top of the graph workspace, click the **EventGraph** tab to go back to the main graph.
-
-Left-click anywhere on the graph canvas and select the nodes that are specific to the rotation logic.
-The following shows the nodes you should be selecting in case you may have forgotten, they're highlighted with a **yellow** border:
+To create a user-defined function quickly from a set of nodes, we can use the **Collapse to Function** feature.
+Select the following nodes you see highlighted in a **yellow** border:
 
 <Figure image="/img/step-by-step/apply-rotation-function-select-nodes.png" caption="Nodes to select"></Figure>
 
@@ -293,78 +273,37 @@ The following shows the nodes you should be selecting in case you may have forgo
 You can also hold the `Ctrl` key and left click each node separately to select multiple nodes.
 :::
 
-Now to move these nodes to the user-defined function, we're going to first **Copy** them rather than use **Cut**:
+Now while these nodes are selected, right-click any of the selected node's titlebar and select **Collapse to Function**.
+A new function will be created where you can assign its name as `apply_rotation`.
 
-1. Press the `Ctrl+C` shortcut to copy the selected nodes into the selection buffer.
-2. In the **Component** view, double-click the `apply_rotation` function or click the `apply_rotation` tab.
-3. In the `apply_rotation` graph, press `Ctrl+V` to paste the selected nodes onto the graph.
+This procedure automatically replaces the nodes in the original graph with a **Call Function** node that calls the function, and places the selected nodes in the new function graph. 
 
-The next step here is to wire up the **Function Entry** node and the nodes that you just added.
+The last step is to left-click the **Function Entry** node, and change the input argument name from `A` to `delta`, as the collapse operation defaults to the connected target pin name.
 
-1. Connect the `delta` output pin to the `A` input pin of the multiplication node.
-2. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Set Rotation** node.
+:::tip
+Using the **Collapse to Function** feature automatically adds the **Function Entry** and **Function Result** nodes, and wires them accordingly.
+This saves time during refactoring operations.
+:::
 
 The user-defined function, `apply_rotation`, should look like this:
 
 <Figure image="/img/step-by-step/apply-rotation-function-finished.png" caption="The apply_rotation(delta) function"></Figure>
 
-The last step is to replace the logic in the **EventGraph** with our new function, `apply_rotation`.
-Click on the **EventGraph** in the **Graphs** section of the **Component** view or select the **EventGraph** tab.
-
-1. Right-click one of the currently selected nodes.
-   :::note
-   If the nodes are not still selected, please reselect them using the procedure above.
-   :::
-2. With the nodes selected, right-click one of the selected nodes and select `Delete` from the context-menu.
-3. Drag the `apply_function` from the **Component** view onto the graph. Select `Add Call Function` from the context-menu. 
-4. Connect the output execution pin from **Process Event** node to the input execution pin of **Call Apply Rotation** node.
-5. Connect the output `delta` pin from the **Process Event** node to the input `delta` pin of **Call Apply Rotation** node.
-6. Connect the output execution pin from **Apply Rotation** to the **Rotated** node.
-7. Open the **All Actions** dialog, search for `Get Rotation` and add it to the graph.
-8. Lastly connect the output in from **Get Rotation** node to the `angle` pin of the **Rotated** node.
-
-Your **EventGraph** should now look like this:
+Your **EventGraph** should now look similar to this:
 
 <Figure image="/img/step-by-step/refactored-apply-rotation.png" caption="After apply_rotation refactored"></Figure>
 
 ### Moving apply movement to a function
 
 Now that we have moved the logic for rotation to a user-defined function, the next step is to do the same for **Apply Movement**.
+Select all nodes except **Process Event** and **Apply Rotation**, right-click one of their titlebars and select **Collapse to Function**.
+When prompted, assign the function's name `apply_movement`.
 
-1. Press the <EditorIcon name="Add"/> button on the top-right of the **Functions** panel in the **Component** view.
-2. When prompted for a function name, enter `apply_movement` and press **Enter**.
-3. In the **Inspector** view, click the **Add Inputs** button to add a new argument to the function.
-4. Set the **name** of the argument from **NewParam** to `delta`.
-5. Set the argument's type by clicking the **Any** button and selecting `Float`.
-
-The **Function Entry** node should look like this in the graph:
-
-<Figure image="/img/step-by-step/apply-movement-function-entry-node.png" caption="Apply movement function"></Figure>
-
-Now again, we're going to select and **Copy** the nodes from the **EventGraph** into our new `apply_movement` user-defined function.
-
-1. Navigate back to the **EventGraph**.
-2. Select **ALL** nodes except the **Process Event** and **Apply Rotation** nodes.
-3. Press `Ctrl+C` to copy the nodes into the buffer.
-4. Navigate back to the **Apply Movement** graph.
-5. Press `Ctrl+V` to paste the nodes onto the graph.
-
-With the nodes pasted, you need to wire up the **Function Entry** node with the other nodes.
-
-1. Connect the output execution pin from the **Function Entry** node to the input execution pin of the **Rotated** node.
-2. Connect the `delta` output pin from the **Function Entry** node to the `B` input pin that isn't connected.<br/>
-This will be the `B` input pin on the **Multiplication** node between a `Vector2` and a `Float`.
+Open the function graph and rename `B` to `delta`.
 
 The user-defined function graph should look like this:
 
 <Figure image="/img/step-by-step/apply-movement-function-finished.png" caption="The apply_movement(delta) function"></Figure>
-
-The last step is to replace the selected nodes in the **EventGraph** with the call to the new user-defined function that handles applying movement, `apply_movement`.
-
-1. Delete all nodes in the **EventGraph** except the **Process Event** and **Apply Rotation** nodes.
-2. Drag the `apply_movement` function from the **Component** view onto the graph. Select **Add Call Function** from the context-menu.
-3. Connect the **Apply Function** output execution pin to the **Apply Movement** input execution pin.
-4. Connect the **Process Event** `delta` output pin to the **Apply Movement** `delta` input pin.
 
 The new refactored **EventGraph** should now look like this:
 
@@ -577,8 +516,10 @@ In this function, we either want to return `Vector2.ZERO` if the player has not 
 The first step we need to is to add the **Function Return** node, returning a `Vector2` value.
 
 1. Select the **Function Entry** node.
-2. In the **Inspector** view, click the **Add Outputs** button to add the return node.
-3. In the **Inspector** view, set the return value's type to `Vector2` from `Any`.
+2. In the **Inspector** view, click the **Add Inputs** button to add an argument.
+3. In the **Inspector** view, set the argument name as `angle` with type `Float`.
+4. In the **Inspector** view, click the **Add Outputs** button to add the return node.
+5. In the **Inspector** view, set the return value's type to `Vector2` from `Any`.
 
 Now to simplify things, navigate back to the `apply_movement` graph and select these nodes.
 The nodes to select are highlighted with a **yellow** border:

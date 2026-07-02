@@ -4,8 +4,8 @@ toc_max_heading_level: 4
 
 # Dialogue
 
-Any RPG game heavily relies on a solid foundation for telling a story and providing an immersive experience for the player.
-One the tools that help facilitate this is using a conversation system to drive the interaction between the player and the game's story.
+Any RPG game relies heavily on a solid foundation for storytelling, providing an immersive experience for the player.
+One of the many tools that helps facilitate that is a conversation system to drive the interaction between the player and the story.
 
 Orchestrator provides two key nodes to support conversation:
 
@@ -20,6 +20,10 @@ The **Show Message** node is the foundation of the dialogue and RPG conversation
 It allows you to define who is speaking, and the text they're going to say.
 Additionally, you can define any number of choice inputs that allow the player to control the execution flow throughout the conversation.
 
+:::info
+In a future update, character definitions will be added to easily customize portrait, sounds, and other dialogue-features.
+:::
+
 ### Using a custom scene
 
 Orchestrator provides a default basic scene for conversations in the `res://addons/orchestrator/scenes` directory.
@@ -31,9 +35,13 @@ To use a custom scene with the conversation system:
 2. Click on the `Default Scene` button for the **Scene** property.
 3. Locate your new custom scene file in the project, and press **Open**.
 
-:::info
-We understand that it may be cumbersome to set the **Scene** on each **Show Message** node manually.
-We will be adding an Orchestrator setting in the future to allow setting a custom default scene in the `Project Settings`.
+:::tip
+Rather than setting the custom scene per node, this can be set once in the plugin's settings.
+
+From the Orchestrator tab, navigate to `File > Settings` and locate `Runtime > Dialogue > Default Message Scene`.
+Locate the custom scene file you would like to be the default, and set the file path.
+
+Once set, all **Show Message** nodes that refer to _Default Scene_ will use the scene specified by this setting.
 :::
 
 ### Non-linear conversation flow
