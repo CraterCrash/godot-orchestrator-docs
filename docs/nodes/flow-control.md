@@ -9,7 +9,7 @@ In other programming languages, these include constructs like if/else or branche
 
 In this section we'll talk about each **Flow Control** node Orchestrator provides.
 
-## Branch - If/Else
+## Branch - If/Else {#branch}
 
 <Figure image="/img/nodes/flow-control/branch-node.png" caption="Conditional / Branch node"></Figure>
 
@@ -230,7 +230,7 @@ The following describes the input and output pins for the **Random** node.
 |:---------|:-----------------------------------------------------------------------------------------------|
 | Choice_n | A random choice output execution between 0..n depending on the number of random choices added. |
 
-## Select - Ternary
+## Select - Ternary {#select}
 
 <Figure image="/img/nodes/flow-control/select-node.png" caption="Select node"></Figure>
 
@@ -401,7 +401,7 @@ The following describes the input and output pins for the **Switch on String** n
 | Case_n / Custom Label             | Optional output value match cases. If label matches, the pin is pulsed.          |
 | Default                           | If enabled, this pin is pulsed if none of the optional output value cases match. |
 
-## Type cast - Is
+## Type cast - Is {#type-cast}
 
 <Figure image="/img/nodes/flow-control/type-cast-node.png" caption="Type cast node"></Figure>
 

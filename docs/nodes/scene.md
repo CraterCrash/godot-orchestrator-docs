@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 Sometimes an `Orchestration` simply modifies the behavior of the node that it's attached; however, there are other situations where one node needs to coordinate, manipulate, or interact with other nodes in your scene.
 Orchestrator provides several useful ways to interact with other scene nodes and the Godot `SceneTree`.
 
-## Get self
+## Get self {#self}
 
 While many nodes automatically default to **Self** for targets, this isn't universally the case.
 The **Get Self** node provides a way to effectively return a `self` reference, e.g.
