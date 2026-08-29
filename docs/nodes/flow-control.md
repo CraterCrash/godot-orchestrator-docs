@@ -163,9 +163,28 @@ The following describes the input and output pins for the **For Loop With Break*
 
 ## For each loop
 
+The **For Each Loop** node works similarly to the **For Loop** node, except that it iterates over a collection rather than over a range of index values.
+
+Orchestrator provides the node in two collection flavors, and each flavor has a variant that can terminate the loop early:
+
+| Node                              | Iterates     | Outputs         |
+|:----------------------------------|:-------------|:----------------|
+| **For Each**                      | `Array`      | Element, Index  |
+| **For Each With Break**           | `Array`      | Element, Index  |
+| **For Each Key-Value**            | `Dictionary` | Key, Value      |
+| **For Each Key-Value With Break** | `Dictionary` | Key, Value      |
+
+:::note
+The collection a node iterates over is fixed when the node is created.
+<br/>An existing **For Each** cannot be switched between an `Array` and a `Dictionary`; add the flavor you need from the graph's action menu.
+:::
+
+### Array {#for-each-loop-array}
+
 <Figure image="/img/nodes/flow-control/for-each-loop-node.png" caption="For Each Loop node"></Figure>
 
-The **For Each Loop** node works similarly to the **For Loop** node, except that it iterates over an `Array`.
+The **For Each** node iterates over an `Array`, emitting an execution pulse out the **Loop Body** pin for each element, along with that **Element** and its **Index**.
+Once every element has been visited, an execution pulse is output the **Completed** pin.
 
 <Figure image="/img/nodes/flow-control/for-each-loop-node-example.png" caption="For Each Loop node example"></Figure>
 
@@ -173,23 +192,28 @@ In the above example, the loop is triggered when a player touches a simple level
 The loop iterates over an `Array`, output each element to the screen.
 Once all elements in the array have been iterated, the loop exits through the **Completed** output pin.
 
-### Node properties {#node-properties-for-each-loop}
+:::note
+The **For Each** node does not provide a way to break the loop early.
+<br/>If you need loop `break` behavior, see [`Array with break`](#for-each-loop-array-with-break).
+:::
 
-The following describes the input and output pins for the **For Each Loop** node.
+#### Node properties {#node-properties-for-each-loop}
 
-| Property                             | Description                                                                                        |
-|:-------------------------------------|:---------------------------------------------------------------------------------------------------|
-| <EditorIcon name="Array"/> Array     | The collection to be iterated.                                                                     |                                                                      
-| Loop Body                            | This outputs an execution pulse on each iteration of the loop as it moves between the two indices. |
-| <EditorIcon name="Variant"/> Element | This outputs the current array element.                                                            |
-| <EditorIcon name="int"/> Index       | This outputs the current index in the loop.                                                        |
-| Completed                            | This outputs an execution pulse when the loop has reached the for loop has completed.              |
+The following describes the input and output pins for the **For Each** node.
 
-## For each loop with break
+| Property                             | Description                                                             |
+|:-------------------------------------|:------------------------------------------------------------------------|
+| <EditorIcon name="Array"/> Array     | The `Array` to be iterated.                                             |
+| Loop Body                            | This outputs an execution pulse for each element in the array.          |
+| <EditorIcon name="Variant"/> Element | This outputs the current array element.                                 |
+| <EditorIcon name="int"/> Index       | This outputs the current index in the loop.                             |
+| Completed                            | This outputs an execution pulse when the loop has completed.            |
+
+### Array with break {#for-each-loop-array-with-break}
 
 <Figure image="/img/nodes/flow-control/for-each-loop-break-node.png" caption="For Each Loop with Break node"></Figure>
 
-The **For Each Loop With Break** node works in a very similar manner to the **For Each Loop** node, except that it includes an *input* pin that allows for the loop's execution to terminate early.
+The **For Each With Break** node works in a very similar manner to the **For Each** node, except that it includes an *input* pin that allows for the loop's execution to terminate early.
 
 In this simple example, the loop is triggered when the player touches a simple level trigger.
 The loop iterates for each element in the array, each time hitting a Branch which checks if the loop has hit the second element.
@@ -198,19 +222,79 @@ Once the second element is reached, the Branch sends a pulse into the **Break** 
 
 <Figure image="/img/nodes/flow-control/for-each-loop-break-node-example.png" caption="For Each Loop with Break node example"></Figure>
 
-### Node properties {#node-properties-for-each-loop-with-break}
+#### Node properties {#node-properties-for-each-loop-with-break}
 
-The following describes the input and output pins for the **For Each Loop With Break** node.
+The following describes the input and output pins for the **For Each With Break** node.
 
-| Property                             | Description                                                                                        |
-|:-------------------------------------|:---------------------------------------------------------------------------------------------------|
-| <EditorIcon name="Array"/> Array     | The collection to be iterated.                                                                     |
-| Break                                | This execution input pin breaks the loop when triggered.                                           |
-| Loop Body                            | This outputs an execution pulse on each iteration of the loop as it moves between the two indices. |
-| <EditorIcon name="Variant"/> Element | This outputs the current array element.                                                            |
-| <EditorIcon name="int"/> Index       | This outputs the current index in the loop.                                                        |
-| Completed                            | This outputs an execution pulse when the loop has reached the for loop has completed.              |
-| Aborted                              | This outputs whether the loop broke early due to the **Break** input pin.                          |
+| Property                             | Description                                                             |
+|:-------------------------------------|:------------------------------------------------------------------------|
+| <EditorIcon name="Array"/> Array     | The `Array` to be iterated.                                             |
+| Break                                | This execution input pin breaks the loop when triggered.                |
+| Loop Body                            | This outputs an execution pulse for each element in the array.          |
+| <EditorIcon name="Variant"/> Element | This outputs the current array element.                                 |
+| <EditorIcon name="int"/> Index       | This outputs the current index in the loop.                             |
+| Completed                            | This outputs an execution pulse when the loop has completed.            |
+| Aborted                              | This outputs whether the loop broke early due to the **Break** input pin. |
+
+### Key-Value {#for-each-loop-key-value}
+
+<Figure image="/img/nodes/flow-control/for-each-loop-key-value-node.png" caption="For Each Key-Value node"></Figure>
+
+The **For Each Key-Value** node iterates over a `Dictionary` rather than an `Array`, emitting an execution pulse out the **Loop Body** pin for each entry, along with that entry's **Key** and its **Value**.
+Once every entry has been visited, an execution pulse is output the **Completed** pin.
+
+<Figure image="/img/nodes/flow-control/for-each-loop-key-value-node-example.png" caption="For Each Key-Value node example"></Figure>
+
+In the above example, the loop iterates over a `Dictionary` of item names and quantities, printing both parts of each entry to the screen.
+Once all entries in the dictionary have been iterated, the loop exits through the **Completed** output pin.
+
+:::note
+A `Dictionary` preserves the order in which entries were added, so the loop visits each entry in insertion order.
+<br/>Unlike the `Array` flavor, there is no **Index** output; use the **Key** to identify the current entry.
+:::
+
+:::note
+The **For Each Key-Value** node does not provide a way to break the loop early.
+<br/>If you need loop `break` behavior, see [`Key-Value with break`](#for-each-loop-key-value-with-break).
+:::
+
+#### Node properties {#node-properties-for-each-loop-key-value}
+
+The following describes the input and output pins for the **For Each Key-Value** node.
+
+| Property                                   | Description                                                                |
+|:-------------------------------------------|:----------------------------------------------------------------------------|
+| <EditorIcon name="Dictionary"/> Dictionary | The `Dictionary` to be iterated.                                           |
+| Loop Body                                  | This outputs an execution pulse for each entry in the dictionary.          |
+| <EditorIcon name="Variant"/> Key           | This outputs the current dictionary key.                                   |
+| <EditorIcon name="Variant"/> Value         | This outputs the value that the current **Key** maps to.                   |
+| Completed                                  | This outputs an execution pulse when the loop has completed.               |
+
+### Key-Value with break {#for-each-loop-key-value-with-break}
+
+<Figure image="/img/nodes/flow-control/for-each-loop-key-value-break-node.png" caption="For Each Key-Value with Break node"></Figure>
+
+The **For Each Key-Value With Break** node works in a very similar manner to the **For Each Key-Value** node, except that it includes an *input* pin that allows for the loop's execution to terminate early.
+
+In this simple example, the loop iterates over each entry in a `Dictionary`, each time hitting a Branch which checks the current **Value**.
+If the value is within the expected range, then a message with the current **Key** is placed on the screen.
+Once a value falls outside that range, the Branch sends a pulse into the **Break** pin, which breaks the loop.
+
+<Figure image="/img/nodes/flow-control/for-each-loop-key-value-break-node-example.png" caption="For Each Key-Value with Break node example"></Figure>
+
+#### Node properties {#node-properties-for-each-loop-key-value-with-break}
+
+The following describes the input and output pins for the **For Each Key-Value With Break** node.
+
+| Property                                   | Description                                                                |
+|:-------------------------------------------|:----------------------------------------------------------------------------|
+| <EditorIcon name="Dictionary"/> Dictionary | The `Dictionary` to be iterated.                                           |
+| Break                                      | This execution input pin breaks the loop when triggered.                   |
+| Loop Body                                  | This outputs an execution pulse for each entry in the dictionary.          |
+| <EditorIcon name="Variant"/> Key           | This outputs the current dictionary key.                                   |
+| <EditorIcon name="Variant"/> Value         | This outputs the value that the current **Key** maps to.                   |
+| Completed                                  | This outputs an execution pulse when the loop has completed.               |
+| Aborted                                    | This outputs whether the loop broke early due to the **Break** input pin.  |
 
 ## Random
 
