@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 export default function FooterLayout({style, links, logo, copyright}) {
   return (
+      <div>
+      {/*
       <footer
           className={clsx('footer', {
               'footer--dark': style === 'dark',
@@ -24,5 +26,7 @@ export default function FooterLayout({style, links, logo, copyright}) {
               </div>
           </div>
       </footer>
+      */}
+      </div>
   );
 }
