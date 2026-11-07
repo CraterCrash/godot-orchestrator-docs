@@ -85,6 +85,8 @@ Our `Orchestration` script currently doesn't do anything.
 Let's make it print the text "Hello, world!" to the output bottom panel to get started.
 
 1. Right-click the graph to open the **All Actions** dialog.
+   This dialog lists every node you can add to the graph, and you'll use it throughout this tutorial.
+   See [Adding nodes](../introduction/key_concepts#adding-nodes) for an overview.
 2. Search for `Print String`, and select the `Print String` action.
 3. To add the node, either press the **Add** button or simply hit **Enter**.
 4. Change the value of the `Text` parameter to `Hello, world!`.
@@ -105,6 +107,24 @@ If done successfully, the two nodes should be connected.
 :::note
 The **Init** event is a special callback that represents the `_init()` function in GDScript, which acts like a constructor.
 The Godot Engine calls this `_init()` on every object or node when it gets created, as long as this function is defined.
+:::
+
+:::info[Why connect these two nodes?]
+The white arrows are **execution pins**, and the wire between them controls **when** a node runs.
+On its own, the **Print String** node never runs, because nothing tells it to.
+By wiring the **Init** event's output execution pin to the **Print String** node's input execution pin, you are saying *"when this object is created, print this text"*.
+
+The `Text` value is a **data pin**.
+Because nothing is wired into it, the node uses the value you typed into the pin.
+
+This is the same as writing the following in GDScript:
+
+```python
+func _init():
+    print("Hello, world!")
+```
+
+See [Graph nodes and pins](../introduction/key_concepts#graph-nodes-and-pins) for more about execution and data pins.
 :::
 
 Now, save the scene as `script_2d.tscn` if you have not already, then press `F6` (`Cmd+R` on MacOS), to run it.
@@ -193,11 +213,36 @@ To do this visually, we need to add several more nodes to our graph:
 8. Search for `Multiply`.
 9. Select the `Float Multiply Float` choice that is under the **Types > Float > Operators** category.
 10. Either press **Add** or simply hit **Enter**.
+11. Right-click the graph area once more to open the **All Actions** dialog.
+12. Search for `Addition`.
+13. Select the `Float Addition Float` choice that is under the **Types > Float > Operators** category, and either press **Add** or simply hit **Enter**.
+14. Drag the `angular_speed` variable from the **Component** view onto the graph, and choose to create a **Get angular_speed** node.
 
 Finally, match all the nodes as shown here.
 This visually represents the `rotation += angular_speed * delta` logic.
 
 <Figure image="/img/step-by-step/apply-rotation.png" caption="Apply rotation based on angular_speed and delta time"></Figure>
+
+:::info[How does this graph match the code?]
+Read the graph the way the engine runs it, starting from the event:
+
+1. Every frame, the **Process Event** fires.
+   Its white output execution pin is wired to **Set Rotation**, so **Set Rotation** is the only node that execution reaches.
+2. Before **Set Rotation** can run, it needs a value for its `Radians` input, so it *pulls* that value from the **Addition** node wired into it.
+3. **Addition** needs both of its inputs, so it pulls `A` from **Multiply** and `B` from **Get Rotation**, which returns the sprite's current `rotation`.
+4. **Multiply** pulls `A` from the **Process Event**'s `Delta` output and `B` from **Get angular_speed**.
+
+Mapped back to the code, `angular_speed * delta` is the **Multiply** node, `rotation + ...` is the **Addition** node, and `rotation = ...` is the **Set Rotation** node.
+Together they make up `rotation += angular_speed * delta`, which is shorthand for `rotation = rotation + angular_speed * delta`.
+
+**Multiply**, **Addition**, **Get angular_speed**, and **Get Rotation** have no execution pins.
+These are **pure** nodes, which run automatically whenever another node needs their value.
+That's why only **Set Rotation** needs to be connected to the event with a white wire.
+
+The `[Self]` input on the **Get Rotation** and **Set Rotation** nodes is left unconnected, which means they act on the scene node that the orchestration is attached to.
+
+See [Graph nodes and pins](../introduction/key_concepts#graph-nodes-and-pins) for more about execution flow, data flow, and pure nodes.
+:::
 
 Run the scene in the editor to see the icon turn in-place.
 
@@ -419,7 +464,26 @@ With the `direction` variable setup, drag the `direction` variable from the **Co
 Each time, making sure to select that you want to create a **Set direction** node.
 
 Now one of the cleanest ways to represent a sequence of operations, like checking two `if` (**Branch**) conditions followed by some logic that will run based on the prior stages is to use a **Sequence** node.
-In our case, we're going to create a **Sequence** node that will have **4** output execution pins, one to initialize our `direction` variable, two to handle the two `if` checks, and lastly one to handle the incrementing of the `rotation`.
+In our case, we're going to create a **Sequence** node that will have **4** output execution pins, one to initialize our `direction` variable, two to handle the two `if` checks, and lastly one to return the `direction` value.
+
+:::info[Why use a Sequence node?]
+In a text-based script, statements run one after another, top to bottom:
+
+```python
+direction = 0
+if Input.is_action_pressed("ui_left"):
+    direction = -1
+if Input.is_action_pressed("ui_right"):
+    direction = 1
+return direction
+```
+
+In a graph, each node has only one place to continue execution from, so you can't fan out a single execution pin to several independent steps.
+The **Sequence** node solves this: when execution reaches it, it runs everything connected to `Then 0` until that path ends, then everything connected to `Then 1`, and so on.
+Each `Then` pin is like one statement in the code above, and the order of the pins is the order they run in.
+
+A **Branch** node, by comparison, is an `if` statement: it continues along only one of its `True` or `False` pins, depending on the value of its `Condition` data pin.
+:::
 
 1. Right-click the graph and open the **All Actions** dialog.
 2. Search for `Sequence`.
