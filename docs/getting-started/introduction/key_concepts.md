@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Orchestrator is a Godot-plugin that is based on a set of key abstractions.
 
-An `Orchestration` is the main resource that you will be creating and managing using the Orchestrator plug-in, common referred to as `.torch` files.
+An `Orchestration` is the main resource that you will be creating and managing using the Orchestrator plug-in, commonly referred to as `.torch` files.
 It represents a Godot `Script` object that contains one or more graphs with any number of connected nodes.
 
 Orchestrations also support user-defined functions, variables, and signals, much like you would see in `GDScript` or `C#` script.
@@ -69,6 +69,91 @@ In the image above, you can see several tabs for **EventGraph**, **apply_rotatio
 This technique allows for optimal organization in visual scripts, preventing clutter and *spaghetti* code.
 
 The **Component** view also allows for creating **Variables** and **Signals**.
+
+### Graph nodes and pins {#graph-nodes-and-pins}
+
+A **Graph** is built from *graph nodes* that you connect together with *wires*.
+This is the part of Orchestrator that replaces writing lines of code, so it's worth taking a moment to understand how the pieces fit together before you start the tutorials.
+
+:::info
+The word "node" means two different things in Orchestrator.
+A **scene node**, like `Sprite2D` or `Camera2D`, lives in the **Scene** dock and is part of your game.
+A **graph node**, like **Print String** or **Branch**, lives in an orchestration's **Graph** and represents a single step of logic.
+In this documentation, when we refer to nodes in a graph, we mean graph nodes.
+:::
+
+<Figure image="/img/getting-started/key_concepts_graph_anatomy.png" caption="Anatomy of a graph"></Figure>
+
+#### Pins
+
+Every graph node has *pins*, the small connection points along its left and right edges.
+Pins on the left side are **inputs**, and pins on the right side are **outputs**.
+There are two kinds of pins, and they do very different jobs:
+
+* <EditorIcon name="VisualShaderPort"/> **Execution pins**, drawn as white arrows, control **when** a node runs and in what **order**.
+* <EditorIcon name="GuiGraphNodePort" size={10}/> **Data pins**, drawn as circles and colored by their data type, carry **values** into and out of a node.
+
+When you drag from an output pin to an input pin, a *wire* is created that connects the two.
+Execution wires can only connect to execution pins, and data wires can only connect to data pins of a compatible type.
+
+A few rules govern how many wires a pin can have:
+
+* An output execution pin can connect to only **one** node, because execution can only continue in one place at a time.
+  Several output execution pins can, however, lead into the same input execution pin.
+* An input data pin can receive only **one** wire, because a value can only come from one place.
+  An output data pin can feed as many input data pins as you like.
+
+If you connect a wire to a pin that already has its maximum, the old wire is replaced.
+
+#### Execution flow
+
+Execution wires describe the order in which your logic runs, much like the order of lines in a text-based script.
+
+A graph always starts running from an **event** node, such as **Init**, **Ready**, or **Process**.
+Events are called by the Godot Engine at specific moments, for example, when the object is created or once every frame.
+When an event fires, execution follows the white wire from its output execution pin to the next node's input execution pin, runs that node, and continues along that node's output execution pin.
+When there are no more wires to follow, execution stops.
+
+A node that has execution pins only runs when execution reaches it.
+If such a node is not connected to an event, either directly or through other nodes, it will never run.
+
+Some nodes have more than one output execution pin.
+For example, the **Branch** node continues along its `True` or `False` pin depending on a condition, and the **Sequence** node runs each of its `Then` pins one after another.
+These are the visual equivalents of `if`/`else` statements and blocks of code.
+
+#### Data flow
+
+Data wires describe where values come from, much like variables and expressions in a text-based script.
+
+When a node runs, it first reads the values on its input data pins.
+If an input data pin has a wire connected, the value comes from the node on the other end of that wire.
+If an input data pin has no wire, the node uses the default value you type directly into the pin.
+
+Data flows from right to left as a node *pulls* the values it needs, while execution flows from left to right.
+For example, a **Set Rotation** node that is reached by execution pulls the value for its `Radians` input from whatever is wired into it, which may in turn pull values from other nodes.
+
+#### Pure nodes
+
+Some graph nodes have no execution pins at all, only data pins.
+These are called **pure** nodes, and examples include math operators like **Multiply**, getting a variable's value, and functions that only compute and return a value, like **Get Rotation**.
+
+Pure nodes do not need to be connected to execution wires.
+Instead, they are evaluated automatically whenever another node pulls a value from one of their output data pins.
+
+:::tip
+If you wired up a node and it does not seem to do anything, check whether it has an input execution pin.
+If it does, it needs an execution wire leading to it from an event.
+:::
+
+#### Adding nodes
+
+Most graph nodes are added using the **All Actions** dialog, which you open by right-clicking on the graph.
+The dialog lists every action that is available in the current script's context, grouped by category, and can be filtered by typing in its search box.
+
+If you drag a wire from a pin and release the mouse over an empty area of the graph, the **All Actions** dialog opens using that pin's context.
+In this case, the dialog only lists actions that can be connected to that pin, and the new node is wired up for you automatically.
+
+For more details, see the [All actions dialog](first-look-at-the-plugin#all-actions-dialog) section.
 
 ### Signals
 

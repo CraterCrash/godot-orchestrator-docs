@@ -88,7 +88,7 @@ A visual script node is the building block of an orchestration, that you connect
 Script nodes have two unique pin types:
 
 * <EditorIcon name="VisualShaderPort"/> Execution or control flow pins that define the order the nodes execute.
-* <EditorIcon name="GuiGraphNodePort"/> Data pins that define input or output data values, colored by data types.
+* <EditorIcon name="GuiGraphNodePort" size={10}/> Data pins that define input or output data values, colored by data types.
 
 The pins that are on the left-side of the node are called **Inputs**.
 The pins on the right-side of the node are called **Outputs**.
